@@ -1,0 +1,635 @@
+\documentclass[twoside, 12pt]{article}
+\usepackage[normalem]{ulem}
+\usepackage[]{fancyhdr}
+\usepackage{varioref, amsmath, stmaryrd, amssymb}
+\usepackage[oldstyle]{clara}
+\usepackage[T1]{fontenc}
+\usepackage[backend=bibtex,natbib,style=authoryear,sorting=nyt]{biblatex}
+\addbibresource{Bibliography.bib}
+\usepackage{xcolor}
+  \colorlet{arrow}{gray}
+ \usepackage[colorlinks, urlcolor=blue, linkcolor=black,
+  citecolor=black, filecolor=black, pagecolor=black]{hyperref}
+\usepackage[norule]{footmisc}
+\usepackage{microtype}
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows}
+\usepackage[linguistics]{forest}
+\usepackage[all]{nowidow}
+\usepackage{gb4e}
+
+% Better looking denotation brackets from stmaryrd
+\newcommand{\denotes}[2][]{\ensuremath{\llbracket \text{#2}\rrbracket^{#1}}}
+
+\forestset{
+default preamble={for tree={s sep=5mm, inner sep=0, l=0}
+}}
+
+
+\newcommand{\paper}{Constructing Symmetric Predicates}
+
+
+\title{\paper\thanks{Our gratitude to Gary Thoms, Satoshi Tomioka, Jason Merchant.}}
+\author{Jeroen van Craenenbroeck and Kyle Johnson}
+\date{\today}
+
+% \widowpenalty=10000
+% \clubpenalty=10000
+
+\begin{document}
+\raggedbottom
+\begin{titlepage} 
+\maketitle 
+\thispagestyle{empty}
+\begin{abstract}
+
+ \noindent 
+ 
+ \end{abstract}
+ \end{titlepage} 
+
+\thispagestyle{empty}
+\noindent
+There are predicates in many languages that can express a relation between individuals either by taking one plural argument referring to those individuals or two, possibly singular, arguments that together refer to those individuals. This is illustrated in (\ref{ex:external}) and~(\ref{ex:internal}).
+\begin{exe}
+\raggedright
+\ex \label{ex:plainsymm} $aP$ $\Leftrightarrow$ $bPc$, when $a = b \oplus\ c$
+\begin{xlist}
+  \ex \label{ex:external} intransitive/transitive alternation
+  \begin{xlist}
+    \ex Arjun and Aisha dated $\Leftrightarrow$ Aisha dated Arjun
+    \ex Our names rhyme $\Leftrightarrow$ Your name rhymes with mine
+    \ex California and Oregon are adjacent $\Leftrightarrow$ California is adjacent to Oregon
+  \end{xlist}
+  \ex \label{ex:internal} transitive/ditransitive alternation
+  \begin{xlist}
+    \ex She mixed camphor and menthol $\Leftrightarrow$ She mixed camphor with menthol
+    \ex She introduced us $\Leftrightarrow$ She introduced you to me
+    \ex She combined the beans and the rice $\Leftrightarrow$ She combined the beans with the rice
+  \end{xlist}
+\end{xlist}
+\end{exe}
+Let's call these ``argument splitting alternations.'' We'll call the intransitive versions of the verbs in (\ref{ex:external}) and the transitive versions of the verbs in (\ref{ex:internal}) the ``unsplit'' variant, and the other pairs in the alternation the ``split'' variant.
+
+\citet{Winter:2018} hypothesizes that predicates which undergo referential valency alternations are also symmetric. A symmetric predicate is one in which the arguments, in a transitive, or the internal arguments, in a ditransitive, can be switched, preserving that component of the meaning that traces back to argument structure.
+\begin{exe}
+\raggedright
+  \ex \label{ex:symm} $bPc$ $\Leftrightarrow$ $cPb$ (symmetric predicates)
+  \begin{xlist}
+  \ex \label{ex:symmtrans} Transitives
+  \begin{xlist}
+    \ex Aisha dated Arjun $\Leftrightarrow$ Arjun dated Aisha
+    \ex Your name rhymes with my name $\Leftrightarrow$ My name rhymes with your name
+    \ex California is adjacent to Oregon $\Leftrightarrow$ Oregon is adjacent to California.
+  \end{xlist}
+  \ex Ditransitives
+  \begin{xlist}
+    \ex She mixed camphor with menthol $\Leftrightarrow$ She mixed menthol with camphor 
+    \ex She introduced you to me $\Leftrightarrow$ She introduced me to you
+    \ex She combined the beans with the rice $\Leftrightarrow$ She combined the rice with the beans
+  \end{xlist}
+\end{xlist}
+\end{exe}
+Let's call this Winter's Generalization.\footnote{In fact, \citet{Winter:2018} argues that (\ref{ex:WL}) should be a biconditional. But he notes that there are counterexamples for the implication symmetric predicate $\rightarrow$ referential valency alternation, some of which are:
+\begin{exe}
+\raggedright
+  \exi{(i)}
+  \begin{xlist}
+    \ex This resembles that. $\Leftrightarrow$ That resembles this. $\neq$ *They resemble.
+    \ex She packaged this with that. $\Leftrightarrow$ She packaged that with this. $\neq$ She packaged them.
+    \ex You concur with me. $\Leftrightarrow$ I concur with you $\neq$ We concur.
+    \ex This compares with that. $\Leftrightarrow$ That compares with this. $\neq$ They compare.
+    \ex You teamed with me. $\Leftrightarrow$ I teamed with you. $\neq$ We teamed.
+  \end{xlist}
+\end{exe}}
+\begin{exe}
+\raggedright
+  \ex \label{ex:WL} Winter's Generalization\\
+  If a predicate participates in an argument splitting alternation then it is symmetric.
+\end{exe}
+
+We will sketch a way of deriving Winter's Generalization that is built upon how $\theta$-roles are assigned. But we must first address what is meant when we say that two sentences have the same meaning relative to their argument structure; that is, what constitutes a symmetric predicate.
+
+We can distinguish two classes of symmetric predicates: near symmetric and strictly symmetric. The examples in (\ref{ex:plainsymm}) are examples of strictly symmetric predicates. Near symmetric predicates are exemplified by the verbs in~(\ref{ex:nearsymm}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:nearsymm}
+  \begin{xlist}
+    \ex Arjun hugged Aisha. $\approx$ Aisha hugged Arjun.
+    \ex Arjun kissed Aisha. $\approx$ Aisha kissed Arjun.
+    \ex Aisha collided with Arjun. $\approx$ Arjun collided with Aisha.
+  \end{xlist}
+\end{exe}
+In line with Winter's Generalization, the sentences in (\ref{ex:nearsymm}) are alternative ways of expressing the meaning that the intransitive version of this verb has. That is, the meanings expressed in (\ref{ex:nearsymmin}) are expressed by the corresponding sentences in~(\ref{ex:nearsymm}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:nearsymmin}
+  \begin{xlist}
+    \ex Arjun and Aisha hugged.
+    \ex Arjun and Aisha kissed.
+    \ex Arjun and Aisha collided.
+  \end{xlist}
+\end{exe}
+But the meanings of the sentences in (\ref{ex:nearsymm}) are not strictly symmetric, as can be seen by considering the pairs in~(\ref{ex:notsymm}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:notsymm}
+  \begin{xlist}
+    \ex Arjun hugged the tree. $\neq$ \# The tree hugged Arjun.
+    \ex Arjun kissed the tree. $\neq$ \# The tree kissed Arjun.
+    \ex Aisha collided with the tree. $\neq$ The tree collided with Aisha.
+  \end{xlist}
+\end{exe}
+
+One way of thinking about this is to give to near symmetric predicates two denotations. In one, they are symmetric, and in the other they aren't. This view preserves Winter's Generalization. It claims that there is a symmetric \textit{hug}---we'll indicate this with \textit{hug_s}---whose meaning preserves the alternation in~(\ref{ex:nsymm1}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:nsymm1}
+  \begin{xlist}
+    \ex Arjun hugged_s Aisha $\Leftrightarrow$ Aisha hugged_s Arjun
+    \ex Arjun kissed_s Aisha $\Leftrightarrow$ Aisha kissed_s Arjun
+    \ex Aisha collided_s with Arjun $\Leftrightarrow$ Arjun collided_s with Aisha
+  \end{xlist}
+\end{exe}
+The other denotation these predicates have, however, is not symmetric. Let's represent the version of these verbs with that denotation with the subscript $a$, for ``asymmetric.'' It is this version of the predicates that is found in~(\ref{ex:asymn}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:asymn}
+  \begin{xlist}
+    \ex Arjun hugged_a the tree. $\nLeftrightarrow$ The tree hugged_a Arjun.
+    \ex Arjun kissed_a the picture. $\nLeftrightarrow$ The picture kissed_a Arjun.
+    \ex Aisha collided_a with the wall. $\nLeftrightarrow$ The wall collided_a with Aisha.
+  \end{xlist}
+\end{exe}
+These versions of the predicates are not found in the intransitive frame, and do not participate in Winter's Generalization.
+\begin{exe}
+\raggedright
+  \ex \label{ex:asymns}
+  \begin{xlist}
+    \ex[\#]{Arjun and the tree hugged_a.}
+    \ex[\#]{Arjun and the picture kissed_a.}
+    \ex[\#]{Aisha and the wall collided_a.}
+  \end{xlist}
+\end{exe}
+
+We'll argue for this view of near symmetric predicates in section yy. What it requires is an account of the relationship between the symmetric and non-symmetric versions of these predicates. If the class of predicates that have these two denotations is not arbitrary, then we should have an explanation for that class and a model of that alternation. This paper does not fill in these gaps.
+
+Consider next the alternations in~(\ref{ex:ground1}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:ground1}
+  \begin{xlist}
+    \ex The string is attached to the kite. $\neq$ The kite is attached to the string.
+    \ex That wire shouldn't touch the ground screw. $\neq$ The ground screw shouldn't touch that wire.
+  \end{xlist}
+\end{exe}
+The two versions of these sentences differ in ways that have been described in terms of the figure-ground distinction familiar from gestalt psychology (\citealt{Kofka:1955}, \citealt{Talmy:1975}). The surface subjects of English sentences typically refer to the entities that the discourse is about, and this, it seems, correlates with a gestalt interpretation of the narrative being conveyed that maps it onto the ``figure.'' In the first sentence of the pairs in (\ref{ex:ground1}), the subject is more naturally the figure of the scene being described, whereas it is the object that is the figure in the second sentence of the pairs. This might be responsible for the oddness of the second member of the alternations in~(\ref{ex:ground1}). Note that the situations in which both sentences in the alternations are judged to be true are the same. We will adopt the view that the ``$\Leftrightarrow$'' relation doesn't preserve the figure-ground relationships, but does preserve truth.
+
+Finally, consider the alternations in~(\ref{ex:agento}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:agento}
+  \begin{xlist}
+    \ex Aisha happily dated Arjun. $\neq$ Arjun happily dated Aisha. $\neq$ Aisha and Arjun happily dated.
+    \ex Aisha willingly married Arjun. $\neq$ Arjun willingly married Aisha. $\neq$ Aisha and Arjun willingly married.
+  \end{xlist}
+\end{exe}
+None of the sentences in these triples have the same meanings. They differ with respect to which argument of the verb is said to be happy or willing. Informally, the adverbs \textit{happily} and \textit{willingly} describe an attribute of the subject of the sentence that they are in, and the meanings in (\ref{ex:agento}) vary, therefore, by virtue of what the subject is. Importantly, what it means to be a ``subject'' for subject-oriented adverbs has to do with how the relevant argument is syntactically positioned, and not how it enters into the relation denoted by the verb. As the examples in (\ref{ex:intsadv}) show, the argument that these adverbs target can be internal arguments (in (\ref{ex:intsadv}a,b)) or even arguments of embedded clauses (in (\ref{ex:intsadv}c,d)).
+\begin{exe}
+\raggedright
+  \ex \label{ex:intsadv}
+  \begin{xlist}
+    \ex[]{Aisha willingly/happily dies in the movie.}
+    \ex[]{Arjun was willingly/happily examined by a doctor.}
+    \ex[]{Aisha will happily/willingly appear to support Trump when he's present.}
+    \ex[]{Arjun happily/willingly seems servile when it's required in Cabinet meetings.}
+  \end{xlist}
+\end{exe}
+By contrast, these adverbs cannot modify an argument if it is not in surface subject position. In (\ref{ex:objsadv}), the adverbs cannot modify the objects, even when that object has the same, or a similar, relation to the verb that it has in~(\ref{ex:intsadv}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:objsadv}
+  \begin{xlist}
+    \ex Aisha killed Arjun willingly/happily.
+    \ex A doctor examined Arjun willingly/happily.
+  \end{xlist}
+\end{exe}
+Instead, the subject-oriented adverbs in (\ref{ex:objsadv}) modify the subject of these clauses. Similarly, \textit{the dog} can only be modified by a subject-oriented adverb in (\ref{ex:dog}a) where it is a surface subject.
+\begin{exe}
+\raggedright
+  \ex \label{ex:dog}
+  \begin{xlist}
+    \ex The dog walked happily/willingly.
+    \ex She walked the dog happily/willingly.
+  \end{xlist}
+\end{exe}
+The subject-oriented adverbs in (\ref{ex:dog}b) can only modify \textit{she}, even though the relation \textit{the dog} bears to \textit{walk} is very similar in both these examples. We conclude that the relation ``$\Leftrightarrow$'' which symmetric predicates participate in doesn't include the meaning contributed by  subject-oriented adverbs, or other secondary predicates that relate an argument to the event being described the verb.
+
+What is preserved by ``$\Leftrightarrow$'' seems to be narrowly tied to the way symmetric predicates relate their arguments to the event they describe. We will follow the hypothesis that how a symmetric predicate relates their two arguments to the event have the same truth conditions no matter the order in which those arguments syntactically combine with the verb. This is what ``$\Leftrightarrow$'' means. We want an explanation for why all verbs that participate in the argument splitting alternation are verbs for which ``$\Leftrightarrow$'' holds for the different orderings of their split variant. We will also take ``$\Leftrightarrow$'' to be what holds of the split and unsplit variants of those predicates that participate in the argument splitting alternation.
+\begin{exe}
+\raggedright
+  \ex \label{ex:rvaf} If P participates in an argument splitting alternation, then:\\ P's unsplit variant $\Leftrightarrow$ P's split variant.
+\end{exe}
+
+Winter's own suggestion is to invoke a set of rules from proto-predicates---logical templates for verb meanings---to lexicalizations of those proto-predicates. He takes the $a$P form to be basic, and then provides rules for expressing P as a relation between individuals just in case certain conditions of similarity hold between the atoms of the plural $a$ and~P. 
+
+His model requires that verbs denote relations between arguments and an event. The denotation of transitive \textit{date}, for instance, is~(\ref{ex:marrydenW}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:marrydenW} $\lambda x\ \lambda y\ \lambda \epsilon$ \textsc{date}($x,y,\epsilon$)
+\end{exe}
+It is built into his explanation that verbs can be relations between entities, and indeed, characterizing the property that verbs must have to participate in Winter's Generalization as ``symmetry'' also relies on taking verbs to be relations between entities. We believe the neo-Davidsonian project of expressing the meanings of verbs in terms of $\theta$-roles is correct, however, and on that view verbs don't relate entities. Instead, entities are related to events, and not each other. The neo-Davidsonian treatment of transitive \textit{date} is~(\ref{ex:marrydenD}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:marrydenD} $\lambda x\ \lambda y\ \lambda \epsilon$ \textsc{date}($\epsilon$) $\wedge$ \textsc{agent}($y$)($\epsilon$) $\wedge$ \textsc{agent}($x$)($\epsilon$)
+\end{exe}
+This neo-Davidsonian view of verb denotations doesn't offer a way of expressing a symmetric relation between arguments. 
+
+Instead, we adopt Dowty (\citeyear{Dowty:1989, Dowty:1991})'s proposal that what makes symmetric predicates (as we'll continue to call them) special is that they allow two arguments to be related to the event by the same $\theta$-role.%
+%
+\footnote{Winter also adopts Dowty's proposal, though he doesn't link it to his generalization.}%
+%
+\ Indeed, a reason for adopting Dowty's suggestion is that it explains Winter's Generalization. If arguments are related to the event described by a verb always through a $\theta$-role, and we have characterized ``$\Leftrightarrow$'' correctly, then (\ref{ex:way1}) follows.
+\begin{exe}
+\raggedright
+  \ex \label{ex:way1} If a verb participates in the argument splitting alternation, then the $\theta$-role it assigns to its argument in the unsplit variant is the same as the $\theta$-role it assigns to the corresponding arguments in its split variant.
+\end{exe}
+Winter's Generalization follows from positing that the arguments in the split variant bear the same $\theta$-role, since~(\ref{ex:WRn}) is true.
+\begin{exe}
+\raggedright
+  \ex \label{ex:WRn} If P assigns the same $\theta$-role to arguments $a$ and $b$, then $\Leftrightarrow$ is preserved in any syntax that combines $a$ and $b$ with~P.
+\end{exe}
+Winter's generalization, then, supports~(\ref{ex:rvadesc}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:rvadesc}
+  An argument splitting alternation arises when a predicate can assign a $\theta$-role to either one or two arguments.
+\end{exe}
+We regard (\ref{ex:rvadesc}) to be a version of Winter's proposal. Unlike Winter's proposal, it doesn't make a claim about the relationship between proto-predicates and their lexicalizations. Instead it claims that the alternation tracks how predicates distribute their $\theta$-roles. But like Winter's proposal, it embraces the idea that how a predicate expresses the relation its arguments have to an event is where the alternation lives.
+
+A popular alternative is to view the unsplit variant as an inherently reciprocal version of the split variant. The unsplit variants can be thought of as cases where the reciprocal arguments in (\ref{ex:recip1}b) and (\ref{ex:recip2}b) have become implicit.
+\begin{exe}
+\raggedright
+  \ex \label{ex:recip1}
+  \begin{xlist}
+    \ex You are adjacent to me.
+    \ex We are adjacent to each other.
+  \end{xlist}
+  \ex \label{ex:recip2}
+  \begin{xlist}
+    \ex She introduced you to me.
+    \ex She introduced us to each other.
+  \end{xlist}
+\end{exe}
+As \citet{Wehbe:2025} shows, making the reciprocal implicit causes the scope of the distributor to be very narrow, and this, in turn, makes an implicit reciprocal have subtly different meanings than the overt reciprocals. On this view, then, one can view the split variant as basic, and the unsplit version as derived from it by a process that forms an inherently reciprocal verb. Because that process could apply to any transitive or ditransitive predicate, Winter's generalization isn't captured. We believe this recommends Winter's approach.%
+%
+\footnote{We also note that taking the view that the alternation involves making normally transitive predicates reciprocal needs to be accompanied by a theory that ensures that the scope of the implicit distributor be narrower than the existential closure of the event variable to derive the effects \citet{Wehbe:2025} describes. This isn't a trivial task. Implicit arguments are often existentially closed, and when they are, the existential takes narrow scope. The mechanism for accomplishing that is different than what is required in making the distributive operator narrow. On Winter's approach, there is no distributive operator and so no problem making it narrow.}%
+%
+
+What is required, then, is an account of how the verbs that participate in the argument splitting alternation are able to assign their $\theta$-role to one argument position or two. The rest of the paper develops an account of this process.
+
+\section{Periphrastic symmetric predicates and Role Exhaustion}
+\label{periphrastic}
+
+An interesting feature of Winter's account of the split variant is that it requires a predicate to assign the same $\theta$-role to two different arguments. This is generally prevented; verbs do not usually come equipped with the ability to assign the same $\theta$-role to two different arguments. That verbs of this kind are generally forbidden is canonized in laws tailored to a variety of different frameworks. In \citet{Chomsky:1981}, it's called the Theta Criterion.
+\begin{exe}
+\raggedright
+  \ex \label{ex:TC} Theta Criterion\\
+  No $\theta$-role may be assigned by a verb to more than one argument position.
+\end{exe}
+We agree with \citet{Carlson:1984aa}, \citet{Dowty:1989}, \citet{Schein:1993}, and \citet{Williams:2015} that the Theta Criterion is a consequence of the meaning of predicates, and not a syntactic principle. That meanings are relevant is indicated by the fact that (\ref{ex:unique1}) doesn't entail~(\ref{ex:unique2}). (This argument comes from \citealt{Schein:1993}.)
+\begin{exe}
+\raggedright
+  \ex \label{ex:unique}
+  \begin{xlist}
+    \ex \label{ex:unique1} Arjun and Aisha baked a cake.
+    \ex \label{ex:unique2} Arjun baked a cake.
+  \end{xlist}
+\end{exe}
+(\ref{ex:unique2}) describes an event that has Arjun as agent, and (\ref{ex:unique1}) describes the same event, but one where Arjun and Aisha are agent. We should expect that (\ref{ex:unique1}) entails (\ref{ex:unique2}), since both describe a baking-cake event with an Agent that includes Arjun. But (\ref{ex:unique1}) fails to entail (\ref{ex:unique2}) because (\ref{ex:unique1}) has a collective interpretation. It can describe a situation in which neither Arjun nor Aisha are the sole agents of the baking event, but instead collectively are. (Arjun sifts the flour, for instance, and Aisha cracks the eggs.) If we choose a predicate that doesn't have a collective interpretation, like \textit{sneeze}, the entailment does go through: (\ref{ex:unique3}) entails~(\ref{ex:unique4}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:unique3} Arjun and Aisha sneezed.
+  \ex \label{ex:unique4} Arjun sneezed.
+\end{exe}
+
+But why does a collective interpretation of (\ref{ex:unique1}) not entail (\ref{ex:unique2})? Being the agent of the cake-baking event described by (\ref{ex:unique2}) must not be the same as participating as agent in a cake-baking. If the agent relation requires that its argument refer to all those entities that are agents of the event(s) being described, then the event described by (\ref{ex:unique1}) is different from the event described by (\ref{ex:unique2}). To derive this, we propose that the denotation of the \textsc{agent} $\theta$-role has the exhaustivity requirement defined in (\ref{ex:exhaust}) associated with it. The denotation of agent is therefore (\ref{ex:uniqueth1}), and the denotations for $\theta$-roles generally are as~(\ref{ex:uniqueth2}) describes. (The name ``role exhaustion'' comes from \citealt[chapter 8.2, p.~165]{Williams:2015}.)
+\begin{exe}
+\raggedright
+  \ex \label{ex:uniqueth} Role Exhaustion
+  \begin{xlist}
+    \ex \label{ex:exhaust} \textsc{$\theta$}_{X}($a$)($\epsilon$) = \textsc{$\theta$}($a$)($\epsilon$) $\wedge$ $\forall y$ [\textsc{$\theta$}($y$)($\epsilon$) $\rightarrow\ y \leq a$] 
+    \ex \label{ex:uniqueth1} \denotes{agent} = $\lambda x\ \lambda \epsilon$ \textsc{agent}_{X}($x$)($\epsilon$)
+    \ex \label{ex:uniqueth2} \denotes{$\theta$} = $\lambda x\ \lambda \epsilon$ \textsc{$\theta$}_{X}($x$)($\epsilon$)
+  \end{xlist}
+\end{exe}
+Role Exhaustion causes (\ref{ex:unique2}) to describe a different event than (\ref{ex:unique1}) does when it is collective. It excludes those events in which there is someone other than Arjun participating in the agent relation. This explains the failure of entailment between (\ref{ex:unique1}) and (\ref{ex:unique2}). It also takes a large step towards deriving the Theta Criterion, as  assigning the same $\theta$-role to two arguments would impose the restriction on each of them that they uniquely have that $\theta$-role.\footnote{Role Exhaustion would, unaided, allow violations of the Theta Criterion if the two arguments bearing the same $\theta$-role refer to the same entity.} We'll use Role Exhaustion in what follows to express the Theta Criterion, but we don't believe this is necessary for our argument here.
+
+Verbs that participate in the argument splitting alternation have a way of assigning $\theta$-roles that circumvents Role Exhaustion. We believe that comitative constructions, like~(\ref{ex:com1}), also have a way of assigning two $\theta$-roles in a way that overcomes Role Exhaustion, and so we will begin be analyzing these scenarios.
+\begin{exe}
+\raggedright
+  \ex \label{ex:com1} Aisha ran with Arjun.
+  \begin{xlist}
+    \ex $\approx$ Aisha and Arjun are both agents of the same running event.
+    \ex $\approx$ Aisha is the agent of the running event and Arjun accompanies Aisha.
+  \end{xlist}
+\end{exe}
+We believe that (\ref{ex:com1}) is ambiguous---given by the paraphrases---and only one of its interpretations is relevant to our project. The irrelevant interpretation is (\ref{ex:com1}b), which arises when (\ref{ex:com1}) is used to report that Aisha ran with her son, Arjun, strapped to her back. We suspect that this meaning arises because the \textit{with}-phrase can be treated as a depictive. It is possible to remove this interpretation of the \textit{with}-phrase by adding \textit{together}, whose semantics requires that the predicate it combines with have a plural argument. 
+\begin{exe}
+\raggedright
+  \ex \label{ex:togetherbase}
+  \begin{xlist}
+    \ex[]{They ran together.}
+    \ex[*]{She ran together.}
+  \end{xlist}
+\end{exe}
+Thus:
+\begin{exe}
+\raggedright
+  \ex \label{ex:together1}
+  \begin{xlist}
+    \ex[*]{Aisha ran together mindful of Arjun.}
+    \ex[]{Aisha ran together with Arjun.}
+    \begin{xlist}
+      \ex $\approx$ Aisha and Arjun are agents of the running event
+      \ex $\neq$ Aisha is the agent of the running event and Arjun accompanies Aisha.
+    \end{xlist}
+  \end{xlist}
+\end{exe}
+
+We learn two things from these comitative examples.
+\begin{exe}
+\raggedright
+  \ex \label{ex:2things}
+  \begin{xlist}
+    \ex A comitative can have a plural argument even when there is only a singular on the surface.
+    \ex It is possible to create a symmetric predicate from a non-symmetric predicate with this plural comitative.
+    \begin{xlist}
+      \sn \textit{witness:}\\ Aisha ran together with Arjun $\Leftrightarrow$ Arjun ran together with Aisha
+    \end{xlist}
+  \end{xlist}
+\end{exe}
+Proposal:
+\begin{exe}
+\raggedright
+  \ex \label{ex:withprop} \textit{with} can take two arguments, form a plural from them, and relate that plural to an event.
+\end{exe}
+Let's develop (\ref{ex:withprop}).
+
+We start by considering how a \textit{with} phrase can be the predicate of a copular construction.
+\begin{exe}
+\raggedright
+  \ex \label{ex:withcop} Aisha is with Arjun.
+  \ex \label{ex:withden} \denotes{$\surd$with} = \parbox[t]{3in}{$\lambda P\ \lambda x\ \lambda y\ \lambda \epsilon$  $P$($x \oplus y$)($\epsilon$)}
+  \ex \label{ex:withcopt}
+  \small
+  \begin{forest}
+  [$\lambda \epsilon$ $R$(Arjun $\oplus$ Aisha)($\epsilon$)\\TP
+    [DP^2 [Aisha, roof]]
+    [$\lambda 2\ \lambda \epsilon$ $R$(Arjun $\oplus$ 2)($\epsilon$) \\TP
+      [T [is]]
+      [$\lambda \epsilon$ $R$(Arjun $\oplus$ 2)($\epsilon$) \\PP
+        [\textit{t_2} ]
+        [$\lambda y\ \lambda \epsilon$ $R$(Arjun $\oplus y$)($\epsilon$) \\PP
+          [P\\ (with) [$\lambda P\ \lambda x\ \lambda y\ \lambda \epsilon$  $P$($x \oplus y$)($\epsilon$)\\ $\surd$with] [$R$]]
+          [DP [Arjun, roof]]
+         ]
+       ]
+     ]
+  ]
+  \end{forest}
+\end{exe}
+As (\ref{ex:withcopt}) indicates, the denotation of (\ref{ex:withcop}) is a predicate that describes eventualities which the sum of Aisha and Arjun have the relation, $R$, to. $R$ is a free variable, whose value is influenced by context. In (\ref{ex:R}) are some illustrative contexts, and the accompanying value for $R$ that they favor.
+\begin{exe}
+\raggedright
+  \ex \label{ex:R}
+  \begin{xlist}
+    \ex
+    \begin{xlist}
+    \exi{Q:} Where is Aisha?
+    \exi{A:} She is with Arjun.\\ $R$ $\approx$ $\lambda x\ \lambda \epsilon$ \textsc{at}($x$)($\epsilon$) $\wedge$ \textsc{location}($\epsilon$)
+    \end{xlist}
+    \ex
+    \begin{xlist}
+      \exi{Q:} Who will dance together at the contest?
+      \exi{A:} Aisha is with Arjun and I am with you.\\ $R$ $\approx$ $\lambda x\ \lambda \epsilon$ \textsc{participant}($x$)($\epsilon$) $\wedge$ \textsc{dance}($\epsilon$)
+    \end{xlist}
+    \ex 
+    \begin{xlist}
+      \exi{Q:} Is anyone else voting for the measure?
+      \exi{A:} I'm with you!\\ $R$ $\approx$ $\lambda x\ \lambda \epsilon$ \textsc{agent}($x$)($\epsilon$) $\wedge$ \textsc{vote}($\epsilon$)
+    \end{xlist}
+    \ex 
+    \begin{xlist}
+      \exi{Q:} Is Aisha single?
+      \exi{A:} She is with Arjun.\\ $R$ $\approx$ $\lambda x\ \lambda \epsilon$ \textsc{participant}($x$)($\epsilon$) $\wedge$ \textsc{relationship}($\epsilon$)
+    \end{xlist}
+  \end{xlist}
+\end{exe}
+
+We have put $R$ into the syntax, so that it can be moved (or bound), for this is how we suggest \textit{with}-phrases compose with VPs when they form symmetric predicates. (\ref{ex:rancon1}) illustrates how \textit{with} composes with an intransitive verb, and (\ref{ex:rancon2}) illustrates how \textit{with} composes with a transitive.
+\begin{exe}
+\raggedright
+  \ex \label{ex:rancon1} \ \\
+  \bigskip
+
+  \footnotesize
+  \hspace*{-50pt}
+  \begin{forest}
+  [$\lambda \epsilon$ \textsc{agent}_{X}(Arjun $\oplus$ Aisha)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$)  \\TP
+    [DP^2 [Aisha, roof]]
+    [TP
+      [T [past]]
+      [$\lambda \epsilon$ \textsc{agent}_{X}(Arjun $\oplus\ 2$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$)  \\vP
+        [$\lambda x\ \lambda \epsilon$ \textsc{agent}_{X}($x$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) \\vP
+          [v [agent]]
+          [VP [V [$\surd$run]]]
+         ]
+        [$\lambda R\ \lambda \epsilon$  $R$(Arjun $\oplus\ 2$)($\epsilon$)\\PP
+          [$\lambda R$ ]
+          [$\lambda \epsilon$  $R$(Arjun $\oplus\ 2$)($\epsilon$)\\PP
+            [\textit{t_2} ]
+            [$\lambda y\ \lambda \epsilon$  $R$(Arjun $\oplus\ y$)($\epsilon$)\\PP
+              [$\lambda x\ \lambda y\ \lambda \epsilon$  $R$($x \oplus\ y$)($\epsilon$)\\ P\\ (with)
+                [$\lambda P\ \lambda x\ \lambda y\ \lambda \epsilon$  $P$($x \oplus\ y$)($\epsilon$)\\ $\surd$with ]
+                [$R$ ]
+               ]
+              [DP [Arjun, roof]]
+             ]
+           ]
+         ]
+       ]
+     ]
+  ]
+  \end{forest}
+  \normalsize \sn = \textit{Aisha ran with Arjun.}
+  \ex \label{ex:rancon2}\ \\
+  \bigskip
+
+  \footnotesize
+  \hspace*{-160pt}
+  \begin{forest}
+  [$\lambda \epsilon$ \textsc{agent}_{X}(she)($\epsilon$) $\wedge$ \textsc{theme}_{X}(menthol $\oplus$ camphor)($\epsilon$) $\wedge$ \textsc{mix}($\epsilon$) \\TP
+    [DP^2 [she, roof]]
+    [TP
+      [T [past]]
+      [$\lambda \epsilon$ \textsc{agent}_{X}($2$)($\epsilon$) $\wedge$ \textsc{theme}_{X}(menthol $\oplus$ camphor)($\epsilon$) $\wedge$ \textsc{mix}($\epsilon$) \\vP
+        [\textit{t_2} ]
+        [$\lambda x\ \lambda \epsilon$ \textsc{agent}_{X}($x$)($\epsilon$) $\wedge$ \textsc{theme}_{X}(menthol $\oplus$ camphor)($\epsilon$) $\wedge$ \textsc{mix}($\epsilon$) \\vP
+          [v [agent]]
+          [$\lambda \epsilon$ \textsc{theme}_{X}(menthol $\oplus$ camphor)($\epsilon$) $\wedge$ \textsc{mix}($\epsilon$)\\VP
+            [$\lambda x\ \lambda \epsilon$ \textsc{theme}_{X}($x$)($\epsilon$) $\wedge$ \textsc{mix}($\epsilon$)\\V [$\surd$mix]]
+            [PP
+              [$\lambda R$]
+              [$\lambda \epsilon$ $R$(menthol $\oplus$ camphor)($\epsilon$) \\PP
+                [DP [camphor, roof]]
+                [$\lambda y\ \lambda \epsilon$ $R$(menthol $\oplus\ y$)($\epsilon$) \\PP
+                  [$\lambda x\ \lambda y\ \lambda \epsilon$ $R$($x \oplus\ y$)($\epsilon$) \\P\\ (with)
+                    [$\lambda P\ \lambda x\ \lambda y\ \lambda \epsilon\ P(x \oplus\ y)$($\epsilon$)\\ $\surd$with]
+                    [$R$ ]
+                   ]
+                  [DP [menthol, roof]]
+                 ]
+               ]
+             ]
+           ]
+         ]
+       ]
+     ]
+  ]
+  \end{forest}
+  \normalsize \sn \textit{= She mixed camphor with menthol.}
+\end{exe}
+Notice that this treatment of \textit{with}-phrases gives them a plural argument, and thereby makes them eligible to be modified by \textit{together}.
+
+We speculate that symmetric predicates that don't involve the word \textit{with} are built from a syntax that nonetheless contains \denotes{$\surd$with}. That syntax puts the denotation of \textit{$\surd$with} inside the word that is pronounced as the verb. (\ref{ex:symmfintrans}) and (\ref{ex:symmfinditrans}) illustrate. We give both frames for these verbs, to illustrate how the $aP$ $\Leftrightarrow$ $bPc$ alternation is modeled.
+\pagebreak
+\begin{exe}
+\raggedright
+  \ex \label{ex:symmfintrans} $bPc$ frame:\\[8pt]
+  % \small
+  \begin{forest}
+      [$\lambda \epsilon$ \textsc{agent}_{X}(Arjun $\oplus$ Aisha)($\epsilon$) $\wedge$ \textsc{date}($\epsilon$) \\vP
+        [DP [Aisha, roof]]
+        [$\lambda y\ \lambda \epsilon$ \textsc{agent}_{X}(Arjun $\oplus\ y$)($\epsilon$) $\wedge$ \textsc{date}($\epsilon$) \\vP
+          [$\lambda x\ \lambda y\ \lambda \epsilon$ \textsc{agent}_{X}$(x \oplus\ y)(\epsilon)$ $\wedge$ \textsc{date}($\epsilon$) \\v\\ (\textit{date})
+          [$\lambda z\ \lambda \epsilon$ \textsc{agent}_{X}($z$)($\epsilon$) $\wedge$ \textsc{date}($\epsilon$)\\v
+            [v [agent]]
+            [V [$\surd$date]]
+          ]
+          [$\lambda P\ \lambda x\ \lambda y\ \lambda \epsilon$ $P(x \oplus\ y)(\epsilon)$ \\$\surd$with]
+          ]
+          [DP [Arjun, roof]]
+         ]
+       ]
+  \end{forest}\\
+  \normalsize \sn \textit{=Aisha dated Arjun.}
+  \medskip
+
+  \normalsize \ex $aP$ frame:\\[8pt]
+  % \small
+  \begin{forest}
+  [$\lambda \epsilon$ \textsc{agent}_{X}(Aisha $\oplus$ Arjun)($\epsilon$) $\wedge$ \textsc{date}($\epsilon$) \\vP
+    [DP [Aisha and Arjun, roof]]
+    [$\lambda x\ \lambda \epsilon$ \textsc{agent}_{X}($x$)($\epsilon$) $\wedge$ \textsc{date}($\epsilon$) \\vP
+      [v [agent]]
+      [VP [V [$\surd$date]]]
+     ]
+  ]
+  \end{forest}\\
+    \normalsize \sn \textit{= Aisha and Arjun dated}
+\pagebreak
+   \ex \label{ex:symmfinditrans} $bPc$ frame:\\[8pt]
+  % \small
+  % \hspace*{-40pt}
+\begin{forest}
+    [$\lambda \epsilon$ \textsc{agent}_{X}(she)($\epsilon$) $\wedge$ \textsc{theme}_{X}(you $\oplus$ me)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$) \\vP
+      [DP [she, roof]]
+      [$\lambda x\ \lambda \epsilon$ \textsc{agent}_{X}($x$)($\epsilon$) $\wedge$ \textsc{theme}_{X}(you $\oplus$ me)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$) \\vP
+        [v [agent]]
+        [$\lambda \epsilon$ \textsc{theme}_{X}(you $\oplus$ me)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$)\\VP
+          [$\lambda y\ \lambda \epsilon$ \textsc{theme}_{X}(you $\oplus\ y)$($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$)\\VP
+          [$\lambda x\ \lambda y\ \lambda \epsilon$ \textsc{theme}_{X}$(x \oplus\ y)$($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$)\\V\\ (introduce)
+            [$\lambda z\ \lambda \epsilon$ \textsc{theme}_{X}($z$)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$)\\V [$\surd$introduce]]
+            [$\lambda P\ \lambda x\ \lambda y\ \lambda \epsilon$ $P(x \oplus\ y)$($\epsilon$)\\ $\surd$with ]
+           ]
+          [DP [you, roof]]
+         ]
+         [PP [to me, roof]]
+       ]
+     ]
+   ]
+\end{forest}\\
+\sn \textit{= She introduced you to me.}
+\medskip
+
+    \ex $aP$ frame:\\[8pt]
+    % \small
+    \begin{forest}
+    [$\lambda \epsilon$ \textsc{agent}_{X}(she)($\epsilon$) $\wedge$ \textsc{theme}_{X}(us)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$) \\vP
+      [DP [she, roof]]
+      [$\lambda x\ \lambda \epsilon$ \textsc{agent}_{X}($x$)($\epsilon$) $\wedge$ \textsc{theme}_{X}(us)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$) \\vP
+        [v [agent]]
+        [$\lambda \epsilon$ \textsc{theme}_{X}(us)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$) \\VP
+          [$\lambda x\ \lambda \epsilon$ \textsc{theme}_{X}($x$)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$) \\V [$\surd$introduce]]
+          [DP [us, roof]]
+         ]
+       ]
+    ]
+    \end{forest}\\
+    \normalsize \textit{= She introduced us.}
+\end{exe}
+Note that we take \textit{to} to be semantically vacuous.
+
+Our treatment of \textit{with}-less symmetric predicates is similar to a popular account of the causative/inchoative alternation. On that account, the alternation in (\ref{ex:causincho1}) is syntactically parallel to the contrast in~(\ref{ex:causincho2}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:causincho1}
+  \begin{xlist}
+    \ex Aisha bounced the ball.
+    \ex The ball bounced.
+  \end{xlist}
+  \ex \label{ex:causincho2}
+  \begin{xlist}
+    \ex Aisha made the ball bounce.
+    \ex The ball bounced.
+  \end{xlist}
+\end{exe}
+The terms associated with  \denotes{make} in (\ref{ex:causincho2}a) are syntactically present in (\ref{ex:causincho1}a), but are exponed by the verb \textit{bounce}. Similarly, we suggest that the denotation for \textit{$\surd$with} is present in examples like (\ref{ex:symmfintrans}) and (\ref{ex:symmfinditrans}), but exponed by the verbs \textit{date} and \textit{introduce}. The verbs that participate in the $aP$ $\Leftrightarrow$ $bPc$ alternation are just those predicates that English has decided can expone~\textit{$\surd$with}. When they expone \textit{$\surd$with}, they have overcome Role Exhaustion, and are therefore symmetric. This is Winter's Generalization.
+
+
+
+
+%References
+\printbibliography[title={\sffamily References}]
+
+\end{document}
+
+``when reciprocal predicates show this equivalence, we refer to them as plain reciprocals'':
+(4) Sue and Dan dated <==> Sue dated Dan (Dan dated Sue)
+p. 3
+
+P1. Meanings of symmetric predicates are logically derived from the collective meanings of their reciprocal alternates. (p.)
+
+"To account for this pattern, it is proposed that the basic lexical meaning of symmetric binary predicates in English is unary-collective." (p. 4)
+
+``symmetry is not an accidental semantic feature of binary predicates, but appears by virtue of their underlying collectivity.'' (p. 4)
+
+Plain Reciprocity
+for all x,y in E, such that x=\=y:P(X+y) <==> R(x,y) and R(y,x) (p. 5, (7))
+
+ Reciprocity-symmetry Generalization: A reciprocal alternation between a unary collective predicate P and a binary R is \uline{plain} if and only if R is truth-conditionally symmetric. ((18), p. 11)
+
+  ``...we logically derive the meaning of the binary construction from the collective meaning.'' (p. 14)
+
+p. 24:
+  A and B are in love ==> A is in love with B and B is in love with A, but A is in love with B and B is in love with A =\=> A&B are in love. ("talking to" is similar?)
+  -- thought: could this be what happens with stative predicates that are like "hug"?
+
+p. 27
+Winter suggests that all these ``hug'' like examples obey this rule: P(x+y) ==> R(x,y) or R(y,x).
+
+ p. 29: ``...transitive verbs without reciprocal alternates individuate single events.'' Sue pushed Dan and Dan pushed Sue ==> two pushes.
+
+ 
