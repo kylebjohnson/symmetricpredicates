@@ -1,0 +1,288 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nyt/global//global/global/global}
+  \entry{Carlson:1984aa}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=CG}{%
+         family={Carlson},
+         familyi={C\bibinitperiod},
+         given={Gregory},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CG1}
+    \strng{fullhash}{CG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1984}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{pages}{259\bibrangedash 279}
+    \field{title}{Thematic roles and their role in semantic interpretation}
+    \field{volume}{22}
+    \field{journaltitle}{Linguistics}
+    \field{year}{1984}
+  \endentry
+
+  \entry{Chomsky:1981}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=CN}{%
+         family={Chomsky},
+         familyi={C\bibinitperiod},
+         given={Noam},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Foris Publications}%
+    }
+    \strng{namehash}{CN1}
+    \strng{fullhash}{CN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1981}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Lectures on government and binding}
+    \list{location}{1}{%
+      {Dordrecht, The Netherlands}%
+    }
+    \field{year}{1981}
+  \endentry
+
+  \entry{Dowty:1989}{incollection}{}{}
+    \name{author}{1}{}{%
+      {{hash=DD}{%
+         family={Dowty},
+         familyi={D\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \name{editor}{3}{}{%
+      {{hash=CG}{%
+         family={Chierchia},
+         familyi={C\bibinitperiod},
+         given={Gennaro},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=PBH}{%
+         family={Partee},
+         familyi={P\bibinitperiod},
+         given={Barbara\bibnamedelima H.},
+         giveni={B\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=TR}{%
+         family={Turner},
+         familyi={T\bibinitperiod},
+         given={Raymond},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Kluwer Academic Press}%
+    }
+    \strng{namehash}{DD1}
+    \strng{fullhash}{DD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1989}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{booktitle}{Properties, Types and Meaning: Semantic Issues}
+    \field{title}{On the Semantic Content of the Notion of `Thematic Role'}
+    \list{location}{1}{%
+      {Dordrecht, The Netherlands}%
+    }
+    \field{year}{1989}
+  \endentry
+
+  \entry{Dowty:1991}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=DD}{%
+         family={Dowty},
+         familyi={D\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DD1}
+    \strng{fullhash}{DD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1991}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{pages}{547\bibrangedash 619}
+    \field{title}{Thematic proto-roles and argument selection}
+    \field{volume}{67}
+    \field{journaltitle}{Language}
+    \field{year}{1991}
+  \endentry
+
+  \entry{Kofka:1955}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=KK}{%
+         family={Kofka},
+         familyi={K\bibinitperiod},
+         given={Kurt},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Routledge}%
+    }
+    \strng{namehash}{KK1}
+    \strng{fullhash}{KK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1955}
+    \field{labeldatesource}{}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{title}{Principles of Gestalt Psychology}
+    \field{year}{1955}
+  \endentry
+
+  \entry{Schein:1993}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=SB}{%
+         family={Schein},
+         familyi={S\bibinitperiod},
+         given={Barry},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {MIT Press}%
+    }
+    \strng{namehash}{SB1}
+    \strng{fullhash}{SB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1993}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Plurals and events}
+    \list{location}{1}{%
+      {Cambridge, Massachusetts}%
+    }
+    \field{year}{1993}
+  \endentry
+
+  \entry{Talmy:1975}{inproceedings}{}{}
+    \name{author}{1}{}{%
+      {{hash=TL}{%
+         family={Talmy},
+         familyi={T\bibinitperiod},
+         given={Leonard},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TL1}
+    \strng{fullhash}{TL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1975}
+    \field{labeldatesource}{}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{booktitle}{Proceedings of the First Annual Meeting of the {B}erkeley {L}inguistics {S}ociety}
+    \field{pages}{419\bibrangedash 430}
+    \field{title}{Figure and Ground in Complex Sentences}
+    \field{year}{1975}
+  \endentry
+
+  \entry{Wehbe:2025}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=WJ}{%
+         family={Wehbe},
+         familyi={W\bibinitperiod},
+         given={Jad},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WJ1}
+    \strng{fullhash}{WJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2025}
+    \field{labeldatesource}{}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{Covert reciprocals: a scope-based analysis of reciprocal alternations}
+    \field{journaltitle}{Natural Langauge Semantics}
+    \field{year}{2025}
+  \endentry
+
+  \entry{Williams:2015}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=WA}{%
+         family={Williams},
+         familyi={W\bibinitperiod},
+         given={Alexander},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{WA1}
+    \strng{fullhash}{WA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{labeldatesource}{}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{Arguments in {S}yntax and {S}emantics}
+    \field{year}{2015}
+  \endentry
+
+  \entry{Winter:2018}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=WY}{%
+         family={Winter},
+         familyi={W\bibinitperiod},
+         given={Yoad},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WY1}
+    \strng{fullhash}{WY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{labeldatesource}{}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{number}{1}
+    \field{pages}{1\bibrangedash 47}
+    \field{title}{Symmetric predicates and the semantics of reciprocal alternations}
+    \field{volume}{11}
+    \field{journaltitle}{Semantics and Pragmatics}
+    \field{year}{2018}
+  \endentry
+\enddatalist
+\endinput
