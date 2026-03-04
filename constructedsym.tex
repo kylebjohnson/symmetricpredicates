@@ -293,10 +293,85 @@ As \citet{Wehbe:2025} shows, making the reciprocal implicit causes the scope of 
 %
 \footnote{We note that taking the view that the alternation involves making normally transitive predicates reciprocal needs to be accompanied by a theory that ensures that the scope of the implicit distributor be narrower than the existential closure of the event variable to derive the effects \citet{Wehbe:2025} describes. This isn't a trivial task. Implicit arguments are often existentially closed, and when they are, the existential takes narrow scope. The mechanism for accomplishing that is different than what is required in making the distributive operator narrow. On Winter's approach, there is no distributive operator and so no problem making it narrow.}%
 %
-\ This gives a different characterization of near symmetric predicates than the one we've offered above. 
+\ This gives a different characterization of near symmetric predicates than we've offered above. On the reciprocal interpretation, there is a process that takes some transitive verbs, like \textit{kiss} for instance, and makes them implicit reciprocals. Transitive \textit{kiss} can also have an overt reciprocal as object. From (\ref{ex:underkiss}), the implicit reciprocal process forms (\ref{ex:underkiss}a) and an overt reciprocal forms~(\ref{ex:underkiss}b).
+\begin{exe}
+\raggedright
+  \ex \label{ex:underkiss} \denotes{kiss} = $\lambda x\ \lambda y\ \lambda \epsilon$ \textsc{patient}($x$)($\epsilon$) $\wedge$ \textsc{agent}($y$)($\epsilon$) $\wedge$ \textsc{kiss}($\epsilon$)
+  \begin{xlist}
+    \ex They_3 kissed.\\ $\exists \epsilon$ $\forall x$ [$x \in 3 \wedge \textsc{atomic}(x)$] $\rightarrow$ $\forall y$ [$y \in 3 \wedge \textsc{atomic}(y) \wedge y \neq x$] $\rightarrow$  \textsc{patient}($y$)($\epsilon$) $\wedge$ \textsc{agent}($x$)($\epsilon$) $\wedge$ \textsc{kiss}($\epsilon$)
+    \ex They_3 kissed each other.\\ $\forall x$ [$x \in 3 \wedge \textsc{atomic}(x)$] $\rightarrow$ $\forall y$ [$y \in 3 \wedge \textsc{atomic}(y) \wedge y \neq x$] $\rightarrow$\\  $\exists \epsilon$ \textsc{patient}($y$)($\epsilon$) $\wedge$ \textsc{agent}($x$)($\epsilon$) $\wedge$ \textsc{kiss}($\epsilon$)
+  \end{xlist}
+\end{exe}
+The central difference between these two ways of expressing \textit{kiss} is the scope of the event and the distributive operator (expressed here with universal quantifiers). Thus, for instance, (\ref{ex:underkiss}b) can describe two asymmetric relations happening at different times and locations (i.e., events). (\ref{ex:underkiss}a) can't have that interpretation since there must be a single event in which the reciprocal asymmetric kissings occur.
 
+Our proposal, by contrast, is that the denotation of \textit{kiss} is (\ref{ex:overkiss}), which gives rise to either (\ref{ex:overkiss}a) or~(\ref{ex:overkiss}b).
+\begin{exe}
+\raggedright
+  \ex \label{ex:overkiss} \denotes{kiss_s} = $\lambda x\ \lambda e$ \textsc{participant}($x$)($\epsilon$) $\wedge$ \textsc{kiss_s}($\epsilon$)
+  \begin{xlist}
+    \ex They_2 kiss.\\ $\exists \epsilon$ \textsc{participant}($3$)($\epsilon$) $\wedge$ \textsc{kiss_s}($\epsilon$)
+    \
+    \ex They_2 kissed each other.\\ $\forall x$ [$x \in 3 \wedge \textsc{atomic}(x)$] $\rightarrow$ $\forall y$ [$y \in 3 \wedge \textsc{atomic}(y) \wedge y \neq x$] $\rightarrow$\\  $\exists \epsilon$ \textsc{participant}($y$)($\epsilon$) $\wedge$ \textsc{participant}($x$)($\epsilon$) $\wedge$ \textsc{kiss_s}($\epsilon$)
+  \end{xlist}
+\end{exe}
+This view requires that \textit{kiss_s} exist, and be a symmetric version of \textit{kiss_a}. 
 
-What is required, then, is an account of how the verbs that participate in the argument splitting alternation are able to assign their $\theta$-role to one argument position or two. The rest of the paper develops an account of this process.
+Neither of these views are entirely problem-free. As Neu (2026) points out, the reciprocal analysis makes the wrong prediction that the implicit reciprocal should entail the overt reciprocal. And yet, the implicit reciprocal can't be used to describe many of the situations in which the overt reciprocal can. Even when there is plausibly one kissing event, as there must be with an implicit reciprocal, there is a difference between the implicit and explicit reciprocal. Imagine, for instance, that I kiss your hand while you kiss mine. This is not felicitously described with \textit{We kissed}, but is by \textit{We kissed each other}. Why this should be so is puzzling if \textit{We kissed} differs from \textit{We kissed each other} only by virtue of the scope of \textit{each}.
+
+By contrast, Winter's analysis makes these facts less puzzling. On Winter's account, the subject of an intransitive (unsplit) \textit{kiss} refers to a group of individuals that are participants in a kissing. There is nothing transitive, or reciprocal, about it. 
+
+The way we will execute Winter's project, on the other hand, has the opposite problem. It requires that the split version of a truly symmetric verb be capable of substituting for an unsplit version of that verb. But Kruitwagen xxx has shown that there are systematic differences in how subjects choose these two frames. In experiments in which subjects are shown one person hugging another person who is passively accepting the embrace, there is a clear preference to use the split version of the verb rather than the unsplit version. That preference is boosted if the passive recipient of the embrace indicates, say by way of facial expression, that they have not chosen to be embraced. Moreover, when a split version of the verb is used, and the unwilling recipient of the hug is referred to be the subject, subjects strongly disprefer it. In short, what Kruitwagen xxx show is~(\ref{ex:kruittable}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:kruittable}
+  \begin{xlist}
+    \ex The external argument of a split symmetric predicate should be more ``agent-like'' than the internal argument of a split symmetric verb.
+    \ex The external argument of a unsplit symmetric predicate should have equal ``agent-like'' properties.
+  \end{xlist}
+\end{exe}
+What (\ref{ex:kruittable}) reflects is a general preference for mapping agent-like properties onto external arguments. For our execution of Winter's proposal, we need to separate this factor from the ``$\Leftrightarrow$'' relation. We'll make a tentative suggestion about how to do this here, but we regard this issue an unresolved problem for our proposals.
+
+The suggestion makes use of (\ref{ex:subjectattitude}), which we saw evidence for in our examination of subject oriented adverbs.
+\begin{exe}
+\raggedright
+  \exr{ex:subjectattitude} Only subjects can have an attitude towards the event denoted by the VP they are the subjects of.
+\end{exe}
+Let's assume that a VoiceP can be introduced by a functional head that relates the argument in its Specifier to the event described by the VoiceP. We'll call that head ATT.
+\begin{exe}
+\raggedright
+  \ex \label{ex:attintro}
+  \small
+  \begin{forest}
+  [TP
+    [T [will]]
+    [AttP
+    [DP [Aisha, roof, name=binder ]]
+    [AttP
+      [Att ]
+      [VoiceP
+      [\textit{t}, name=trace]
+        [VoiceP
+          [Voice ]
+          [VP
+            [V [kiss]]
+            [DP [Arjun, roof]]
+           ]
+         ]
+       ]
+     ]
+  ]]
+  \draw[->,>=stealth', thin, gray] (trace) to[out=south west,in=south,looseness=1] node[pos=0.75,xshift=-10mm]{} (binder);
+  \end{forest}
+\end{exe}
+Let \denotes{Att} introduce the presupposition in (\ref{ex:preatt}) and make \denotes{AttP}=\denotes{VoiceP}.
+\begin{exe}
+\raggedright
+  \ex \label{ex:preatt}
+  $\lambda P\ \lambda x\ \forall \epsilon\ P(\epsilon) \rightarrow R(x)(\epsilon)$, where $R$ is an attitude.
+\end{exe}
+Subject oriented adverbs can be thought of as providing the denotation of~$R$. The goal is to let something like \textit{Aisha happily kissed Arjun} mean something like ``Aisha is happy to be the agent of kissing Arjun.'' When there is no agent oriented adverb, $R$ is a free variable, giving rise to a meaning roughly like ``There is an attitude Aisha has about being the agent of kissing Arjun.'' We suggest that ``having an attitude'' is what makes an argument more ``agent-like.'' If the movement to Specifier of AttP is A-movement, the argument that will become ``subject,'' i.e. occupy Specifier of TP, will have the attitude. That is the highest of two arguments, so generally the external $\theta$-role bearer. But, as we've seen, this argument can be an internal argument as well, as in passive or raising examples. This, we suggest, derives (\ref{ex:kruittable}).
+
+We will pursue, then, the idea that predicates which participate in the argument splitting alternation are able to assign their $\theta$-role to one argument position or two. The rest of the paper develops an account of this process.
 
 \section{Periphrastic symmetric predicates and Role Exhaustion}
 \label{periphrastic}
@@ -366,24 +441,6 @@ Thus:
     \end{xlist}
   \end{xlist}
 \end{exe}
-
-Arjun danced beside Mary
-Arjun wrote the paper beside Mary
-Arjun wrote the paper with Mary
-Arjun danced naked with Mary
-Arjun danced naked with his backpack
-Arjun danced naked happy
-Arjun danced with Mary naked
-Arjun danced with his pack naked
-
-Arjun and Amir danced beside each other
-Arjun and Amir danced with each other
-
-Arjun and Amir wanted to dance with each other
-Arjun and Amir said that they danced with each other
-Arjun and Amir said that they met each other
-
-
 
 We learn two things from these comitative examples.
 \begin{exe}
@@ -678,4 +735,4 @@ Winter suggests that all these ``hug'' like examples obey this rule: P(x+y) ==> 
 
  p. 29: ``...transitive verbs without reciprocal alternates individuate single events.'' Sue pushed Dan and Dan pushed Sue ==> two pushes.
 
- 
+ /Users/kbj/Library/CloudStorage/Dropbox/ellipsis-and-symmetry/constructedsym/ConstructedPaper/constructedsym.tex
