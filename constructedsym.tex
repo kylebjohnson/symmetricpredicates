@@ -2,8 +2,11 @@
 \usepackage[normalem]{ulem}
 \usepackage[]{fancyhdr}
 \usepackage{varioref, amsmath, stmaryrd, amssymb}
-\usepackage[oldstyle]{clara}
-\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\setmainfont{Corbel}[Numbers=OldStyle]
+\setsansfont{Myriad Pro}[Numbers=OldStyle, Scale=MatchLowercase]
+% \usepackage[oldstyle]{clara}
+% \usepackage[T1]{fontenc}
 \usepackage[backend=bibtex,natbib,style=authoryear,sorting=nyt]{biblatex}
 \addbibresource{Bibliography.bib}
 \usepackage{xcolor}
@@ -72,7 +75,7 @@ There are predicates in many languages that can express a relation between indiv
 \end{exe}
 Let's call these ``argument splitting alternations.'' We'll call the intransitive versions of the verbs in (\ref{ex:external}) and the transitive versions of the verbs in (\ref{ex:internal}) the ``unsplit'' variant, and the other pairs in the alternation the ``split'' variant.
 
-\citet{Winter:2018} hypothesizes that predicates which undergo referential valency alternations are also symmetric. A symmetric predicate is one in which the arguments, in a transitive, or the internal arguments, in a ditransitive, can be switched, preserving that component of the meaning that traces back to argument structure.
+\citet{Winter:2018} hypothesizes that predicates which undergo argument splitting alternations are also symmetric. A symmetric predicate is one in which the arguments, in a transitive, or the internal arguments, in a ditransitive, can be switched, preserving that component of the meaning that traces back to argument structure.
 \begin{exe}
 \raggedright
   \ex \label{ex:symm} $bPc$ $\Leftrightarrow$ $cPb$ (symmetric predicates)
@@ -108,7 +111,6 @@ Let's call this Winter's Generalization.\footnote{In fact, \citet{Winter:2018} a
   \ex \label{ex:WL} Winter's Generalization\\
   If a predicate participates in an argument splitting alternation then it is symmetric.
 \end{exe}
-
 We will sketch a way of deriving Winter's Generalization that is built upon how $\theta$-roles are assigned. But we must first address what is meant when we say that two sentences have the same meaning relative to their argument structure; that is, what constitutes a symmetric predicate.
 
 We can distinguish two classes of symmetric predicates: near symmetric and strictly symmetric. The examples in (\ref{ex:plainsymm}) are examples of strictly symmetric predicates. Near symmetric predicates are exemplified by the verbs in~(\ref{ex:nearsymm}).
@@ -116,31 +118,32 @@ We can distinguish two classes of symmetric predicates: near symmetric and stric
 \raggedright
   \ex \label{ex:nearsymm}
   \begin{xlist}
-    \ex Arjun hugged Aisha. $\approx$ Aisha hugged Arjun.
-    \ex Arjun kissed Aisha. $\approx$ Aisha kissed Arjun.
-    \ex Aisha collided with Arjun. $\approx$ Arjun collided with Aisha.
+    \ex Arjun hugged Aisha. $\leftrightarrow$ Aisha hugged Arjun.
+    \ex Arjun kissed Aisha. $\leftrightarrow$ Aisha kissed Arjun.
+    \ex Aisha collided with Arjun. $\leftrightarrow$ Arjun collided with Aisha.
   \end{xlist}
 \end{exe}
-In line with Winter's Generalization, the sentences in (\ref{ex:nearsymm}) are alternative ways of expressing the meaning that the intransitive version of this verb has. That is, the meanings expressed in (\ref{ex:nearsymmin}) are expressed by the corresponding sentences in~(\ref{ex:nearsymm}).
-\begin{exe}
-\raggedright
-  \ex \label{ex:nearsymmin}
-  \begin{xlist}
-    \ex Arjun and Aisha hugged.
-    \ex Arjun and Aisha kissed.
-    \ex Arjun and Aisha collided.
-  \end{xlist}
-\end{exe}
-But the meanings of the sentences in (\ref{ex:nearsymm}) are not strictly symmetric, as can be seen by considering the pairs in~(\ref{ex:notsymm}).
+the meanings of the sentences in (\ref{ex:nearsymm}) are not strictly symmetric, as can be seen by considering the pairs in~(\ref{ex:notsymm}).
 \begin{exe}
 \raggedright
   \ex \label{ex:notsymm}
   \begin{xlist}
-    \ex Arjun hugged the tree. $\neq$ \# The tree hugged Arjun.
-    \ex Arjun kissed the tree. $\neq$ \# The tree kissed Arjun.
-    \ex Aisha collided with the tree. $\neq$ The tree collided with Aisha.
+    \ex Arjun hugged the tree. $\nleftrightarrow$ \# The tree hugged Arjun.
+    \ex Arjun kissed the tree. $\nleftrightarrow$ \# The tree kissed Arjun.
+    \ex Aisha collided with the tree. $\nleftrightarrow$ The tree collided with Aisha.
   \end{xlist}
 \end{exe}
+However, in line with Winter's Generalization, the sentences in (\ref{ex:nearsymm}) can be alternative ways of expressing the meaning that the intransitive version of this verb has. In particular, when the ``$\leftrightarrow$'' relation in (\ref{ex:nearsymm}) is ``$\Leftrightarrow$,'' then these sentences express the same thing as the unsplit, intransitive, version of these verbs. The relations in (\ref{ex:nearsymmin}) hold.
+\begin{exe}
+% \raggedright
+  \ex \label{ex:nearsymmin}
+  \begin{xlist}
+    \ex {} [ Arjun hugged Aisha $\Leftrightarrow$ Aisha hugged Arjun] $\rightarrow$\\ {} [Arjun and Aisha hugged $\Leftrightarrow$ Arjun hugged Aisha] 
+    \ex {} [ Arjun kissed Aisha $\Leftrightarrow$ Aisha kissed Arjun] $\rightarrow$\\ {} [Arjun and Aisha kissed $\Leftrightarrow$ Arjun kissed Aisha] 
+    \ex {} [ Arjun collided with Aisha $\Leftrightarrow$ Aisha collided with Arjun] $\rightarrow$\\ {} [Arjun and Aisha collided $\Leftrightarrow$ Arjun collided with Aisha] 
+  \end{xlist}
+\end{exe}
+Near symmetric verbs obey Winter's Generalization in a contingent way, then. 
 
 One way of thinking about this is to give to near symmetric predicates two denotations. In one, they are symmetric, and in the other they aren't. This view preserves Winter's Generalization. It claims that there is a symmetric \textit{hug}---we'll indicate this with \textit{hug_s}---whose meaning preserves the alternation in~(\ref{ex:nsymm1}).
 \begin{exe}
@@ -226,10 +229,10 @@ Instead, the subject-oriented adverbs in (\ref{ex:objsadv}) modify the subject o
 \end{exe}
 The subject-oriented adverbs in (\ref{ex:dog}b) can only modify \textit{she}, even though the relation \textit{the dog} bears to \textit{walk} is very similar in both these examples. We conclude that the relation ``$\Leftrightarrow$'' which symmetric predicates participate in doesn't include the meaning contributed by  subject-oriented adverbs, or other secondary predicates that relate an argument to the event being described the verb.
 
-Let us make a note here about the meaning of these subject oriented adverbs that will become relevant shortly. While we won't give a formal semantics, we think it's clear that the relation that these adverbs have is importantly different than manner adverbs. Consider, for instance, the somewhat strained interpretation that \textit{she walked the dog happily} can get when \textit{happily} understood as a manner adverb. On this interpretation the walk that the dog is being made to endure is a happy walk. On this interpretation, nothing about the dog's state is communicated. When \textit{happily} is subject, oriented, by contrast, it describes an attitude the subject has towards the event. In (\ref{ex:dog}a), the dog is said to be happy or willing to be the agent of walking. We suggest the following observation.
+Let us make a note here about the meaning of these subject oriented adverbs that will become relevant shortly. While we won't give a formal semantics, we think it's clear that the relation that these adverbs have is importantly different than manner adverbs. (See \citealt{Geuder:2002} for a extensive discussion of this.) Consider, for instance, the somewhat strained interpretation that \textit{she walked the dog happily} can get when \textit{happily} is understood as a manner adverb. On this interpretation the walk that the dog is being made to endure is a happy walk. Nothing about the dog's state is communicated. A very unhappy dog could be walked in a happy manner. When \textit{happily} is subject, oriented, by contrast, it describes an attitude the subject has towards the event. In (\ref{ex:dog}a), the dog is said to be happy or willing to be the agent of walking. We make the following observation.
 \begin{exe}
 \raggedright
-  \ex \label{ex:subjectattitude} Only subjects can have an attitude towards the event denoted by the VP they are the subjects of.
+  \ex \label{ex:subjectattitude} Only surface subjects can have an attitude towards the event denoted by the VP they are the subjects of.
 \end{exe}
 Subject oriented adverbs live on (\ref{ex:subjectattitude}), and say something about that attitude.
 
@@ -239,9 +242,9 @@ What is preserved by ``$\Leftrightarrow$'' seems to be narrowly tied to the way 
   \ex \label{ex:rvaf} If P participates in an argument splitting alternation, then:\\ P's unsplit variant $\Leftrightarrow$ P's split variant.
 \end{exe}
 
-Winter's own suggestion is to invoke a set of rules from proto-predicates---logical templates for verb meanings---to lexicalizations of those proto-predicates. He takes the $a$P form to be basic, and then provides rules for expressing P as a relation between individuals just in case certain conditions of similarity hold between the atoms of the plural $a$ and~P. 
+Winter's own explanation of Winter's Generalization invokes a set of rules from proto-predicates---logical templates for verb meanings---to lexicalizations of those proto-predicates. He takes the underlying proto-predicate to be a collective single argument predicate. There are then rules that allow that collective predicate to be expressed as a relation between individuals just in case certain conditions of similarity hold between the atoms of the argument have a certain symmetry. 
 
-His model requires that verbs denote relations between arguments and an event. The denotation of transitive \textit{date}, for instance, is~(\ref{ex:marrydenW}).
+His model requires that the two-argument verbs formed from the underlying proto-predicate denote relations between arguments and an event. The denotation of transitive \textit{date}, for instance, is~(\ref{ex:marrydenW}).
 \begin{exe}
 \raggedright
   \ex \label{ex:marrydenW} $\lambda x\ \lambda y\ \lambda \epsilon$ \textsc{date}($x,y,\epsilon$)
@@ -260,7 +263,8 @@ Instead, we adopt Dowty (\citeyear{Dowty:1989, Dowty:1991})'s proposal that what
 \ Indeed, a reason for adopting Dowty's suggestion is that it explains Winter's Generalization. If arguments are related to the event described by a verb always through a $\theta$-role, and we have characterized ``$\Leftrightarrow$'' correctly, then (\ref{ex:way1}) follows.
 \begin{exe}
 \raggedright
-  \ex \label{ex:way1} If a verb participates in the argument splitting alternation, then the $\theta$-role it assigns to its argument in the unsplit variant is the same as the $\theta$-role it assigns to the corresponding arguments in its split variant.
+  \ex \label{ex:way1} The Split Theta-role Analysis\\
+  If a verb participates in the argument splitting alternation, then the $\theta$-role it assigns to its argument in the unsplit variant is the same as the $\theta$-role it assigns to the corresponding arguments in its split variant.
 \end{exe}
 Winter's Generalization follows from positing that the arguments in the split variant bear the same $\theta$-role, since~(\ref{ex:WRn}) is true.
 \begin{exe}
@@ -273,7 +277,7 @@ Winter's generalization, then, supports~(\ref{ex:rvadesc}).
   \ex \label{ex:rvadesc}
   An argument splitting alternation arises when a predicate can assign a $\theta$-role to either one or two arguments.
 \end{exe}
-We regard (\ref{ex:rvadesc}) to be a version of Winter's proposal. Unlike Winter's proposal, it doesn't make a claim about the relationship between proto-predicates and their lexicalizations. Instead it claims that the alternation tracks how predicates distribute their $\theta$-roles. But like Winter's proposal, it embraces the idea that how a predicate expresses the relation its arguments have to an event is where the alternation lives.
+We regard (\ref{ex:rvadesc}) to be a version of Winter's proposal. Unlike Winter's proposal, it doesn't make a claim about the relationship between proto-predicates and their lexicalizations. Instead it claims that the alternation tracks how predicates distribute their $\theta$-roles. But like Winter's proposal, it embraces the idea that how a predicate expresses the relation its arguments have to an event is where the alternation lives. In particular, it expresses the hypothesis that the ``$\Leftrightarrow$'' relation is just entailment by a $\theta$-role. The meanings preserved by ``$\Leftrightarrow$'' are just those that trace back to the meaning of a $\theta$-role. The meanings that aren't preserved by ``$\Leftrightarrow$''---like the figure/ground distinction and the information provided by subject oriented adverbs---aren't part of the meaning of a $\theta$-role. This, at any rate, is the thesis we wish to explore.
 
 A popular alternative is to view the unsplit variant as an inherently reciprocal version of the split variant. The unsplit variants can be thought of as cases where the reciprocal arguments in (\ref{ex:recip1}b) and (\ref{ex:recip2}b) have become implicit.
 \begin{exe}
@@ -320,7 +324,7 @@ Neither of these views are entirely problem-free. As Neu (2026) points out, the 
 
 By contrast, Winter's analysis makes these facts less puzzling. On Winter's account, the subject of an intransitive (unsplit) \textit{kiss} refers to a group of individuals that are participants in a kissing. There is nothing transitive, or reciprocal, about it. 
 
-The way we will execute Winter's project, on the other hand, has the opposite problem. It requires that the split version of a truly symmetric verb be capable of substituting for an unsplit version of that verb. But Kruitwagen xxx has shown that there are systematic differences in how subjects choose these two frames. In experiments in which subjects are shown one person hugging another person who is passively accepting the embrace, there is a clear preference to use the split version of the verb rather than the unsplit version. That preference is boosted if the passive recipient of the embrace indicates, say by way of facial expression, that they have not chosen to be embraced. Moreover, when a split version of the verb is used, and the unwilling recipient of the hug is referred to be the subject, subjects strongly disprefer it. In short, what Kruitwagen xxx show is~(\ref{ex:kruittable}).
+The Split Theta-role Analysis, on the other hand, has the opposite problem. It requires that the split version of a truly symmetric verb be capable of substituting for an unsplit version of that verb. But Kruitwagen xxx has shown that there are systematic differences in how subjects choose these two frames. In experiments in which subjects are shown one person hugging another person who is passively accepting the embrace, there is a clear preference to use the split version of the verb rather than the unsplit version. That preference is boosted if the passive recipient of the embrace indicates, say by way of facial expression, that they have not chosen to be embraced. Moreover, when a split version of the verb is used, and the unwilling recipient of the hug is referred to be the subject, subjects strongly disprefer it. In short, what Kruitwagen xxx show is~(\ref{ex:kruittable}).
 \begin{exe}
 \raggedright
   \ex \label{ex:kruittable}
@@ -353,13 +357,14 @@ Let's assume that a VoiceP can be introduced by a functional head that relates t
         [VoiceP
           [Voice ]
           [VP
-            [V [kiss]]
             [DP [Arjun, roof]]
+            [VP
+            [V [kiss]]
            ]
          ]
        ]
      ]
-  ]]
+  ]]]
   \draw[->,>=stealth', thin, gray] (trace) to[out=south west,in=south,looseness=1] node[pos=0.75,xshift=-10mm]{} (binder);
   \end{forest}
 \end{exe}
@@ -376,7 +381,7 @@ We will pursue, then, the idea that predicates which participate in the argument
 \section{Periphrastic symmetric predicates and Role Exhaustion}
 \label{periphrastic}
 
-An interesting feature of Winter's account of the split variant is that it requires a predicate to assign the same $\theta$-role to two different arguments. This is generally prevented; verbs do not usually come equipped with the ability to assign the same $\theta$-role to two different arguments. That verbs of this kind are generally forbidden is canonized in laws tailored to a variety of different frameworks. In \citet{Chomsky:1981}, it's called the Theta Criterion.
+An interesting feature of the Split Theta Role Analysis is that it requires a predicate to assign the same $\theta$-role to two different arguments. This is generally prevented. Verbs do not usually come equipped with the ability to assign the same $\theta$-role to two different arguments. That verbs of this kind are generally forbidden is canonized in laws tailored to a variety of different frameworks. In \citet{Chomsky:1981}, it's called the Theta Criterion.
 \begin{exe}
 \raggedright
   \ex \label{ex:TC} Theta Criterion\\
@@ -398,7 +403,9 @@ We agree with \citet{Carlson:1984aa}, \citet{Dowty:1989}, \citet{Schein:1993}, a
   \ex \label{ex:unique4} Arjun sneezed.
 \end{exe}
 
-But why does a collective interpretation of (\ref{ex:unique1}) not entail (\ref{ex:unique2})? Being the agent of the cake-baking event described by (\ref{ex:unique2}) must not be the same as participating as agent in a cake-baking. If the agent relation requires that its argument refer to all those entities that are agents of the event(s) being described, then the event described by (\ref{ex:unique1}) is different from the event described by (\ref{ex:unique2}). To derive this, we propose that the denotation of the \textsc{agent} $\theta$-role has the exhaustivity requirement defined in (\ref{ex:exhaust}) associated with it. The denotation of agent is therefore (\ref{ex:uniqueth1}), and the denotations for $\theta$-roles generally are as~(\ref{ex:uniqueth2}) describes. (The name ``role exhaustion'' comes from \citealt[chapter 8.2, p.~165]{Williams:2015}.)
+But why does a collective interpretation of (\ref{ex:unique1}) not entail (\ref{ex:unique2})? Being the agent of the cake-baking event described by (\ref{ex:unique2}) must not be the same as participating as agent in a cake-baking. If, however, the agent relation requires that its argument refer to all those entities that are agents of the event(s) being described, then the event described by (\ref{ex:unique1}) is different from the event described by (\ref{ex:unique2}). If being an agent of an event means being the exclusive agent of that event, then (\ref{ex:unique1}) correctly fails to entail (\ref{ex:ex:unique2}).
+
+To derive this, we propose that the denotation of the \textsc{agent} $\theta$-role has the exhaustivity requirement defined in (\ref{ex:exhaust}) associated with it. The denotation of agent is therefore (\ref{ex:uniqueth1}), and the denotations for $\theta$-roles generally are as~(\ref{ex:uniqueth2}) describes. (The name ``role exhaustion'' comes from \citealt[chapter 8.2, p.~165]{Williams:2015}.)
 \begin{exe}
 \raggedright
   \ex \label{ex:uniqueth} Role Exhaustion
@@ -408,9 +415,13 @@ But why does a collective interpretation of (\ref{ex:unique1}) not entail (\ref{
     \ex \label{ex:uniqueth2} \denotes{$\theta$} = $\lambda x\ \lambda \epsilon$ \textsc{$\theta$}_{X}($x$)($\epsilon$)
   \end{xlist}
 \end{exe}
-Role Exhaustion causes (\ref{ex:unique2}) to describe a different event than (\ref{ex:unique1}) does when it is collective. It excludes those events in which there is someone other than Arjun participating in the agent relation. This explains the failure of entailment between (\ref{ex:unique1}) and (\ref{ex:unique2}). It also takes a large step towards deriving the Theta Criterion, as  assigning the same $\theta$-role to two arguments would impose the restriction on each of them that they uniquely have that $\theta$-role.\footnote{Role Exhaustion would, unaided, allow violations of the Theta Criterion if the two arguments bearing the same $\theta$-role refer to the same entity.} We'll use Role Exhaustion in what follows to express the Theta Criterion, but we don't believe this is necessary for our argument here.
+Role Exhaustion causes (\ref{ex:unique2}) to describe a different event than (\ref{ex:unique1}) does when it is collective. It excludes those events in which there is someone other than Arjun participating in the agent relation. This not only explains the failure of entailment between (\ref{ex:unique1}) and (\ref{ex:unique2}) but it also takes a large step towards deriving the Theta Criterion, as  assigning the same $\theta$-role to two arguments would impose the restriction on each of them that they uniquely have that $\theta$-role.%
+%
+\footnote{Role Exhaustion would, unaided, allow violations of the Theta Criterion if the two arguments bearing the same $\theta$-role refer to the same entity. In principle, then, Role Exhaustion be satisfied by a verb that assigns the same $\theta$-role to two arguments that are necessarily covalued. We don't know of verbs like this. Perhaps this is too narrow a meaning for a language to develop a verb for.}%
+%
+\ We'll use Role Exhaustion in what follows to express the Theta Criterion, but there are surely other ways of deriving the Theta Criterion that are compatible with our analysis.
 
-Verbs that participate in the argument splitting alternation have a way of assigning $\theta$-roles that circumvents Role Exhaustion. We believe that comitative constructions, like~(\ref{ex:com1}), also have a way of assigning two $\theta$-roles in a way that overcomes Role Exhaustion, and so we will begin be analyzing these scenarios.
+Verbs that participate in the argument splitting alternation have a way of assigning $\theta$-roles that circumvents Role Exhaustion. We believe that comitative constructions, like~(\ref{ex:com1}), provide a way of allowing one $\theta$-role to be assigned to two arguments. 
 \begin{exe}
 \raggedright
   \ex \label{ex:com1} Aisha ran with Arjun.
@@ -419,49 +430,11 @@ Verbs that participate in the argument splitting alternation have a way of assig
     \ex $\approx$ Aisha is the agent of the running event and Arjun accompanies Aisha.
   \end{xlist}
 \end{exe}
-We believe that (\ref{ex:com1}) is ambiguous---given by the paraphrases---and only one of its interpretations is relevant to our project. The irrelevant interpretation is (\ref{ex:com1}b), which arises when (\ref{ex:com1}) is used to report that Aisha ran with her son, Arjun, strapped to her back. We suspect that this meaning arises because the \textit{with}-phrase can be treated as a depictive. It is possible to remove this interpretation of the \textit{with}-phrase by adding \textit{together}, whose semantics requires that the predicate it combines with have a plural argument. 
-\begin{exe}
-\raggedright
-  \ex \label{ex:togetherbase}
-  \begin{xlist}
-    \ex[]{They ran together.}
-    \ex[*]{She ran together.}
-  \end{xlist}
-\end{exe}
-Thus:
-\begin{exe}
-\raggedright
-  \ex \label{ex:together1}
-  \begin{xlist}
-    \ex[*]{Aisha ran together mindful of Arjun.}
-    \ex[]{Aisha ran together with Arjun.}
-    \begin{xlist}
-      \ex $\approx$ Aisha and Arjun are agents of the running event
-      \ex $\neq$ Aisha is the agent of the running event and Arjun accompanies Aisha.
-    \end{xlist}
-  \end{xlist}
-\end{exe}
+The relation that \textit{with} establishes between \textit{Arjun} and \textit{Aisha} in (\ref{ex:com1}) includes one in which both \textit{Aisha} and \textit{Arjun} are agents of the running event. Role Exhaustion should prevent that interpretation, and so there must be some way in which the comitative overcomes that effect. We'll begin, then, with an analysis of comitatives and, once that's in hand, return to symmetric predicates.
 
-We learn two things from these comitative examples.
-\begin{exe}
-\raggedright
-  \ex \label{ex:2things}
-  \begin{xlist}
-    \ex A comitative can have a plural argument even when there is only a singular on the surface.
-    \ex It is possible to create a symmetric predicate from a non-symmetric predicate with this plural comitative.
-    \begin{xlist}
-      \sn \textit{witness:}\\ Aisha ran together with Arjun $\Leftrightarrow$ Arjun ran together with Aisha
-    \end{xlist}
-  \end{xlist}
-\end{exe}
-Proposal:
-\begin{exe}
-\raggedright
-  \ex \label{ex:withprop} \textit{with} can take two arguments, form a plural from them, and relate that plural to an event.
-\end{exe}
-Let's develop (\ref{ex:withprop}).
+\subsection{Comitative ``with''}
 
-We start by considering how a \textit{with} phrase can be the predicate of a copular construction.
+We start by considering how a \textit{with} phrase can be the predicate of a copular construction like (\ref{ex:withcop}). We suggest the denotation of \textit{with} is~(\ref{ex:withden}).
 \begin{exe}
 \raggedright
   \ex \label{ex:withcop} Aisha is with Arjun.
@@ -470,7 +443,7 @@ We start by considering how a \textit{with} phrase can be the predicate of a cop
   \small
   \begin{forest}
   [$\lambda \epsilon$ $R$(Arjun $\oplus$ Aisha)($\epsilon$)\\TP
-    [DP^2 [Aisha, roof]]
+    [DP [Aisha, roof]]
     [$\lambda 2\ \lambda \epsilon$ $R$(Arjun $\oplus$ 2)($\epsilon$) \\TP
       [T [is]]
       [$\lambda \epsilon$ $R$(Arjun $\oplus$ 2)($\epsilon$) \\PP
@@ -511,116 +484,264 @@ As (\ref{ex:withcopt}) indicates, the denotation of (\ref{ex:withcop}) is a pred
     \end{xlist}
   \end{xlist}
 \end{exe}
+A key feature of this account is that \textit{with} forms a sum of the referents of its two arguments. This is the feature that will play the role of satisfying Role Exhaustion.
 
-We have put $R$ into the syntax, so that it can be moved (or bound), for this is how we suggest \textit{with}-phrases compose with VPs when they form symmetric predicates. (\ref{ex:rancon1}) illustrates how \textit{with} composes with an intransitive verb, and (\ref{ex:rancon2}) illustrates how \textit{with} composes with a transitive.
+If this is the right denotation for \textit{with}, then we need to understand how that denotation can form comitatives. There is some superficial reason to think that comitatives are a kind of depictive. Depictives require that the state described by the depictive overlap temporally with the event of the verb the depictive combines with. In (\ref{ex:dep1}a), for instance, entails that Aisha is drunk contemporaneously with the running event she is the agent of. That is also true of the comitative in (\ref{ex:dep1}b); being accompanied by Arjun must be contemporaneous with the running event.
 \begin{exe}
 \raggedright
-  \ex \label{ex:rancon1} \ \\
-  \bigskip
-
-  \footnotesize
-  \hspace*{-50pt}
-  \begin{forest}
-  [$\lambda \epsilon$ \textsc{agent}_{X}(Arjun $\oplus$ Aisha)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$)  \\TP
-    [DP^2 [Aisha, roof]]
-    [TP
-      [T [past]]
-      [$\lambda \epsilon$ \textsc{agent}_{X}(Arjun $\oplus\ 2$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$)  \\vP
-        [$\lambda x\ \lambda \epsilon$ \textsc{agent}_{X}($x$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) \\vP
-          [v [agent]]
-          [VP [V [$\surd$run]]]
-         ]
-        [$\lambda R\ \lambda \epsilon$  $R$(Arjun $\oplus\ 2$)($\epsilon$)\\PP
-          [$\lambda R$ ]
-          [$\lambda \epsilon$  $R$(Arjun $\oplus\ 2$)($\epsilon$)\\PP
-            [\textit{t_2} ]
-            [$\lambda y\ \lambda \epsilon$  $R$(Arjun $\oplus\ y$)($\epsilon$)\\PP
-              [$\lambda x\ \lambda y\ \lambda \epsilon$  $R$($x \oplus\ y$)($\epsilon$)\\ P\\ (with)
-                [$\lambda P\ \lambda x\ \lambda y\ \lambda \epsilon$  $P$($x \oplus\ y$)($\epsilon$)\\ $\surd$with ]
-                [$R$ ]
-               ]
-              [DP [Arjun, roof]]
-             ]
-           ]
-         ]
-       ]
-     ]
-  ]
-  \end{forest}
-  \normalsize \sn = \textit{Aisha ran with Arjun.}
-  \ex \label{ex:rancon2}\ \\
-  \bigskip
-
-  \footnotesize
-  \hspace*{-160pt}
-  \begin{forest}
-  [$\lambda \epsilon$ \textsc{agent}_{X}(she)($\epsilon$) $\wedge$ \textsc{theme}_{X}(menthol $\oplus$ camphor)($\epsilon$) $\wedge$ \textsc{mix}($\epsilon$) \\TP
-    [DP^2 [she, roof]]
-    [TP
-      [T [past]]
-      [$\lambda \epsilon$ \textsc{agent}_{X}($2$)($\epsilon$) $\wedge$ \textsc{theme}_{X}(menthol $\oplus$ camphor)($\epsilon$) $\wedge$ \textsc{mix}($\epsilon$) \\vP
-        [\textit{t_2} ]
-        [$\lambda x\ \lambda \epsilon$ \textsc{agent}_{X}($x$)($\epsilon$) $\wedge$ \textsc{theme}_{X}(menthol $\oplus$ camphor)($\epsilon$) $\wedge$ \textsc{mix}($\epsilon$) \\vP
-          [v [agent]]
-          [$\lambda \epsilon$ \textsc{theme}_{X}(menthol $\oplus$ camphor)($\epsilon$) $\wedge$ \textsc{mix}($\epsilon$)\\VP
-            [$\lambda x\ \lambda \epsilon$ \textsc{theme}_{X}($x$)($\epsilon$) $\wedge$ \textsc{mix}($\epsilon$)\\V [$\surd$mix]]
-            [PP
-              [$\lambda R$]
-              [$\lambda \epsilon$ $R$(menthol $\oplus$ camphor)($\epsilon$) \\PP
-                [DP [camphor, roof]]
-                [$\lambda y\ \lambda \epsilon$ $R$(menthol $\oplus\ y$)($\epsilon$) \\PP
-                  [$\lambda x\ \lambda y\ \lambda \epsilon$ $R$($x \oplus\ y$)($\epsilon$) \\P\\ (with)
-                    [$\lambda P\ \lambda x\ \lambda y\ \lambda \epsilon\ P(x \oplus\ y)$($\epsilon$)\\ $\surd$with]
-                    [$R$ ]
-                   ]
-                  [DP [menthol, roof]]
-                 ]
-               ]
-             ]
-           ]
-         ]
-       ]
-     ]
-  ]
-  \end{forest}
-  \normalsize \sn \textit{= She mixed camphor with menthol.}
+  \ex \label{ex:dep1} 
+  \begin{xlist}
+    \ex Aisha ran the marathon drunk.
+    \ex Aisha ran the marathon with Arjun.
+  \end{xlist}
 \end{exe}
-Notice that this treatment of \textit{with}-phrases gives them a plural argument, and thereby makes them eligible to be modified by \textit{together}.
+Moreover, depictives are sensitive to the event structure of the verb that they combine with. \citet[(6):~11]{Ardid-Gumiel:2001} argues, for instance, that an adjectival depictive must ``make reference to either a process (sub)event or transition.'' This makes depictives incapable of combining with non-process achievements, she argues. Examples are (\ref{ex:dep2}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:dep2}
+  \begin{xlist}
+    \ex[*]{Maria grasped the irony nervous.}
+    \sn \textit{compare:} Maria grasped the gun nervous.
+    \ex[*]{Maria recognized my car clean.}
+    \sn \textit{compare:} Maria returned my car clean.
+  \end{xlist}
+  \hfill \citep[based on (7)-(8):~5]{Ardid-Gumiel:2001}\hfill\hspace*{.15in}
+\end{exe}
+We see the same restriction for comitatives.
+\begin{exe}
+\raggedright
+  \ex \label{ex:com1}
+  \begin{xlist}
+    \ex[*]{Maria grapsed the irony with Pablo.}
+    \sn \textit{compare:} Maria grasped the gun with Pablo.
+    \ex[*]{Maria recognized my car with the bus.}
+    \sn \textit{compare:} Maria returned my car with the bus.
+  \end{xlist}
+\end{exe}
+We suggest, then, that comitatives can be analyzed as predicates formed from \textit{with}-phrases that are used as depictives.
 
-We speculate that symmetric predicates that don't involve the word \textit{with} are built from a syntax that nonetheless contains \denotes{$\surd$with}. That syntax puts the denotation of \textit{$\surd$with} inside the word that is pronounced as the verb. (\ref{ex:symmfintrans}) and (\ref{ex:symmfinditrans}) illustrate. We give both frames for these verbs, to illustrate how the $aP$ $\Leftrightarrow$ $bPc$ alternation is modeled.
+Let's begin with an account of depictives formed from adjectives. Assume that adjectives describe states which their arguments hold, along the lines in (\ref{ex:nakedbare}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:nakedbare}
+  \small
+  \begin{forest}
+  [$\lambda \epsilon$ \textsc{holder}(Smith)($\epsilon$) $\wedge$ \textsc{naked}($\epsilon$)
+    [DP [Smith, roof] ]
+    [$\lambda x\ \lambda \epsilon$ \textsc{holder}($x$)($\epsilon$) $\wedge$ \textsc{naked}($\epsilon$)\\ AP [naked, roof] ]
+  ]
+  \end{forest}
+\end{exe}
+In depictives, we'll assume there is a hidden morpheme that connects these state descriptions to the VP and imposes the temporal overlap and event structure conditions in the way that (\ref{ex:depictive}) indicates. (\ref{ex:depictiveill}) illustrates.
+\begin{exe}
+\raggedright
+  \ex \label{ex:depictive} \denotes{dep} = $\lambda P\ \lambda Q\ \lambda x\ \lambda \epsilon\ \exists \epsilon'\ P(x)(\epsilon')\ \wedge\ Q(x)(\epsilon)\ \wedge$ $\epsilon\ \circ \epsilon'$
+  \ex \label{ex:depictiveill}
+  \small
+  \begin{forest}
+      [$\lambda \epsilon\ \exists \epsilon'$ \textsc{holder_x}(Arjun)($\epsilon'$) $\wedge$ \textsc{naked}($\epsilon'$) $\wedge$ \\ \textsc{agent_x}(Smith)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) $\wedge$ $\epsilon\ \circ \epsilon'$\\VoiceP
+        [DP [Arjun, roof] ]
+        [$\lambda x\ \lambda \epsilon\ \exists \epsilon'$ \textsc{holder_x}($x$)($\epsilon'$) $\wedge$ \textsc{naked}($\epsilon'$) $\wedge$\\ \textsc{agent_x}($x$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) $\wedge$ $\epsilon\ \circ \epsilon'$\\VoiceP
+        [$\lambda x\ \lambda \epsilon$ \textsc{agent}($x$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) \\VoiceP
+          [Voice [agent_x]]
+          [VP [$\surd$run]]
+         ]
+         [$\lambda Q\ \lambda x\ \lambda \epsilon\ \exists \epsilon'$ \textsc{holder_x}($x$)($\epsilon'$) $\wedge$ \textsc{naked}($\epsilon'$) $\wedge$\\ $Q$($x$)($\epsilon$) $\wedge$ $\epsilon \circ \epsilon'$ \\DepP
+          [Dep ]
+          [$\lambda x\ \lambda \epsilon$ \textsc{holder}($x$)($\epsilon$) $\wedge$ \textsc{naked}($\epsilon$) \\AP [naked, roof]]
+         ]
+       ]
+     ]
+  \end{forest}
+\end{exe}
+We code the temporal and event conditions with ``$\circ$.''
+
+A depictive that targets an object has the syntax and semantics indicated in~(\ref{ex:depobj1}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:depobj1}
+  \small
+  \begin{forest}
+  [VoiceP
+    [DP [Arjun, roof]]
+    [VoiceP
+      [Voice [agent_x]]
+      [$\lambda \epsilon\ \exists \epsilon'$ \textsc{holder_x}(Aisha)($\epsilon'$) $\wedge$ \textsc{happy}($\epsilon'$) $\wedge$\\ \textsc{patient_x}(Aisha)($\epsilon$) $\wedge$ \textsc{see}($\epsilon$) $\wedge$ $\epsilon \circ \epsilon'$\\VP
+        [DP [Aisha, roof]]
+        [$\lambda x\ \lambda \epsilon\ \exists \epsilon'$ \textsc{holder_x}($x$)($\epsilon'$) $\wedge$ \textsc{happy}($\epsilon'$) $\wedge$\\ \textsc{patient_x}($x$)($\epsilon$) $\wedge$ \textsc{see}($\epsilon$) $\wedge$ $\epsilon \circ \epsilon'$\\VP
+          [$\lambda y\ \lambda \epsilon$ \textsc{patient_x}($y$)($\epsilon$) $\wedge$ \textsc{see}($\epsilon$) \\VP [V [$\surd$see]]]
+          [$\lambda Q\ \lambda x\ \lambda \epsilon\ \exists \epsilon'$ \textsc{holder_x}($x$)($\epsilon'$) $\wedge$ \textsc{happy}($\epsilon'$) $\wedge$\\ $Q(x)(\epsilon)$ $\wedge$ $\epsilon \circ \epsilon'$  \\DepP
+            [Dep ]
+            [AP [happy, roof]]
+          ]
+         ]
+       ]
+     ]
+  ]
+  \end{forest}
+\end{exe}
+
+If we've correctly modeled the semantics of \textit{with}-phrases, we should expect them to be able to be depictives, with the syntax and semantics illustrated by~(\ref{ex:withdep1}) and~(\ref{ex:withdep2}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:withdep1}
+  % \small
+  \begin{forest}
+  [$\lambda \epsilon\ \exists \epsilon'$ $R(\text{Aisha} \oplus \text{Arjun})(\epsilon')$\\ $\wedge$ \textsc{agent_x}(Arjun)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) $\wedge$ $\epsilon \circ \epsilon'$\\VoiceP
+  [DP [Arjun, roof] ]
+      [$\lambda x\ \lambda \epsilon\ \exists \epsilon'$ $R(\text{Aisha} \oplus y)(\epsilon')$\\ $\wedge$ \textsc{agent_x}($x$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) $\wedge$ $\epsilon \circ \epsilon'$\\VoiceP
+    [$\lambda x\ \lambda \epsilon$ \textsc{agent_x}($x$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) \\VoiceP
+        [Voice [agent]]
+        [VP [$\surd$run] ]
+       ]
+       [$\lambda Q\ \lambda x\ \lambda \epsilon\ \exists \epsilon'$ $R(\text{Aisha} \oplus y)(\epsilon')$\\ $\wedge\ Q(x)(\epsilon)\ \wedge$ $\epsilon \circ \epsilon'$\\DepP
+       [Dep]
+      [$\lambda y\ \lambda \epsilon$  $R(\text{Aisha} \oplus y)(\epsilon)$ \\PP [with Aisha, roof] ]
+       ]
+     ]
+  ]
+  \end{forest}
+  \ex \label{ex:withdep2}
+  \begin{forest}
+  [VoiceP
+    [DP [Maria, roof]]
+    [VoiceP
+      [Voice [agent_x]]
+      [$\lambda \epsilon\ \exists \epsilon'\ R(\text{bus} \oplus \text{car})(\epsilon')$ $\wedge$\\ \textsc{patient_x}(car)($\epsilon$) $\wedge$ \textsc{return}($\epsilon$) $\wedge$ $\epsilon \circ \epsilon'$ \\VP
+        [DP [my car, roof]]
+        [$\lambda x\ \lambda \epsilon\ \exists \epsilon'\ R(\text{bus} \oplus x)(\epsilon')$ $\wedge$\\ \textsc{patient_x}($x$)($\epsilon$) $\wedge$ \textsc{return}($\epsilon$) $\wedge$ $\epsilon \circ \epsilon'$ \\VP
+          [$\lambda y\ \lambda \epsilon$ \textsc{patient_x} $\wedge$ \textsc{return}($\epsilon$) \\V [$\surd$return]]
+          [$\lambda Q\ \lambda x\ \lambda \epsilon\ \exists \epsilon'\ R(\text{bus} \oplus x)(\epsilon)$\\DepP
+            [Dep ]
+            [PP [with the bus, roof]]
+           ]
+         ]
+       ]
+     ]
+  ]
+  \end{forest}
+\end{exe}
+If we let the value of $R$ be paraphrased by ``accompanied by,'' then the meanings delivered in these examples are roughly those paraphrased in~(\ref{ex:withdepm}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:withdepm}
+  \begin{xlist}
+    \ex Arjun ran while accompanied by Aisha.
+    \ex Maria returned my car while it was accompanied by the bus
+  \end{xlist}
+\end{exe}
+
+Consider what happens if $R$ gets the value that VoiceP or V have in these examples. This would produce for (\ref{ex:withdep1}) and (\ref{ex:withdep2}) the meanings indicated in~(\ref{ex:withdepms}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:withdepms}
+  \begin{xlist}
+    \ex $\lambda \epsilon\ \exists \epsilon'$ \textsc{agent_x}$(\text{Aisha} \oplus \text{Arjun})(\epsilon') \wedge \textsc{run}(\epsilon')$\\ $\wedge$ \textsc{agent_x}(Arjun)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) $\wedge$ $\epsilon \circ \epsilon'$
+    \sn $\approx$ Arjun ran while Aisha and Arjun ran
+    \ex $\lambda \epsilon\ \exists \epsilon'\ \textsc{patient_x}(\text{bus} \oplus \text{car})(\epsilon') \wedge \textsc{return}(\epsilon')$ $\wedge$\\ \textsc{patient_x}(car)($\epsilon$) $\wedge$ \textsc{return}($\epsilon$) $\wedge$ $\epsilon \circ \epsilon'$
+    \sn $\approx$ Maria returned my car while returning my car and the bus
+  \end{xlist}
+\end{exe}
+These denotations informally say that the events of Arjun-running and car-returning that the verbs describe overlap with an event of Arjun$\oplus$Aisha-running and car$\oplus$bus-returning that the \textit{with}-phrase describes. Note that Role Exhaustion requires that these events be different---one has a singular argument and the other has a plural argument---but the depictive causes them to overlap. We can't see how this meaning would be used to describe situations in which there is one event of running that involves both Arjun and Aisha and one event of returning that involves both my car and the bus. Of the many meanings that a \textit{with}-phrase can have when it is used as a depictive, one of those is indistinguishable from a symmetric one. Switching \textit{Arjun} and \textit{Aisha} in (\ref{ex:withdepms}a) gives a nearly equivalent meaning, as does switching \textit{my car} and \textit{the bus} in~(\ref{ex:withdepms}b).
+
+On this construal, the comitative comes close to being a paraphrastic symmetric predicate. Indeed, many of the predicates that are offered as examples of symmetric predicates involve \textit{with}. Interestingly, these cases don't have the same range of meanings that \textit{with} otherwise permits. Instead, in these cases, \textit{with} only gives rise to a periphrastic symmetric interpretation. We suggest the denotation of \textit{with} has been reanalyzed into one that requires that the free variable it introduces be provided by the verbal projection it attaches to. These are no longer depictives, but instead cases where \textit{with} can combine directly with a predicate of the right meaning. The denotation we suggest is (\ref{ex:withsym}).
+\begin{exe}
+\raggedright
+  \ex \label{ex:withsym} \denotes{with} = $\lambda x\ \lambda y\ \lambda P\ \lambda \epsilon\ P(x \oplus y)(\epsilon)$
+\end{exe}
+(\ref{ex:withsym1}) and (\ref{ex:withsym2}) illustrate how this works.
 \pagebreak
+\begin{exe}
+\raggedright
+  \ex \label{ex:withsym1}\ \\[8pt]
+
+  \hspace*{-40pt}
+  \small
+  \begin{forest}
+  [$\exists \epsilon\ \textsc{participant_x}(\text{mine} \oplus \text{your name})(\epsilon) \wedge \textsc{rhyme}(\epsilon)$\\TP
+    [DP [your name, roof, name=binder]]
+    [TP
+    [T [past]]
+    [$\lambda \epsilon\ \textsc{participant_x}(\text{mine} \oplus 2)(\epsilon) \wedge \textsc{rhyme}(\epsilon)$\\VoiceP
+    [$\lambda y\ \lambda \epsilon\ \textsc{participant_x}(y)(\epsilon) \wedge \textsc{rhyme}(\epsilon)$\\VoiceP
+      [Voice [participant_x]]
+      [VP [V [rhyme]]
+       ]
+     ]
+    [$\lambda P\ \lambda \epsilon P(\text{mine} \oplus 2)(\epsilon)$ \\PP
+    [t_2, name=trace]
+    [$\lambda y\ \lambda P\ \lambda \epsilon P(\text{mine} \oplus y)(\epsilon)$ \\PP
+    [$\lambda x\ \lambda y\ \lambda P\ \lambda \epsilon P(x \oplus y)(\epsilon)$ \\P [with]] 
+    [DP [mine, roof]]
+    ]
+  ]
+  ]]]
+  \draw[->,>=stealth', thin, gray] (trace) to[out=south west,in=south,looseness=1] node[pos=0.75,xshift=-10mm]{} (binder);
+  \end{forest}
+  \ex \label{ex:withsym2}
+  \hspace*{-40pt}
+  \small
+  \begin{forest}
+  [VoiceP
+    [DP [she, roof]]
+    [VoiceP
+      [Voice [agent_x]]
+      [$\lambda \epsilon$ $\textsc{patient_x}(\text{menthol} \oplus \text{camphor}) \wedge \textsc{mix}(\epsilon)$ \\VP
+        [DP [camphor, roof, name=binder]]
+        [$\lambda 2\ \lambda \epsilon$ $\textsc{patient_x}(\text{menthol} \oplus 2) \wedge \textsc{mix}(\epsilon)$ \\VP
+          [$\lambda y\ \lambda \epsilon$ \textsc{patient}($y$)($\epsilon$) $\wedge$ \textsc{mix}($\epsilon$) \\V [$\surd$mix]]
+          [$\lambda P\ P(\text{menthol} \oplus 2)(\epsilon)$ \\PP
+            [t_2, name=trace ]
+            [$\lambda x\ \lambda P\ P(\text{menthol} \oplus x)(\epsilon)$ \\PP
+              [P [with]]
+              [DP [menthol, roof]]
+             ]
+           ]
+         ]
+       ]
+     ]
+  ]
+  \draw[->,>=stealth', thin, gray] (trace) to[out=south west,in=south,looseness=1] node[pos=0.75,xshift=-10mm]{} (binder);
+  \end{forest}
+\end{exe}
+Note that in these cases, the arguments that are in a symmetric relationship are not arguments of the verb. They are instead, arguments of \textit{with}. One of those arguments has moved, presumably for Case reasons. The $\theta$-roles that the verbs introduce end up assigned to the sum formed from the two arguments. This what \textit{with} does. Because \textit{with} causes the $\theta$-role to be assigned to the sum of the two arguments that \textit{with} combines with, Role Exhaustion is satisfied.
+
+\subsection{Building the symmetric verb}
+
+We speculate that symmetric predicates that don't involve the word \textit{with} are built from a syntax that nonetheless contains \denotes{$\surd$with}. That syntax puts the denotation of the verbal root into \textit{$\surd$with}.  (\ref{ex:symmfintrans}) and (\ref{ex:symmfinditrans}) illustrate. We give both frames for these verbs, to illustrate how the $aP$ $\Leftrightarrow$ $bPc$ alternation is modeled.
 \begin{exe}
 \raggedright
   \ex \label{ex:symmfintrans} $bPc$ frame:\\[8pt]
   % \small
   \begin{forest}
-      [$\lambda \epsilon$ \textsc{agent}_{X}(Arjun $\oplus$ Aisha)($\epsilon$) $\wedge$ \textsc{date}($\epsilon$) \\vP
-        [DP [Aisha, roof]]
-        [$\lambda y\ \lambda \epsilon$ \textsc{agent}_{X}(Arjun $\oplus\ y$)($\epsilon$) $\wedge$ \textsc{date}($\epsilon$) \\vP
-          [$\lambda x\ \lambda y\ \lambda \epsilon$ \textsc{agent}_{X}$(x \oplus\ y)(\epsilon)$ $\wedge$ \textsc{date}($\epsilon$) \\v\\ (\textit{date})
-          [$\lambda z\ \lambda \epsilon$ \textsc{agent}_{X}($z$)($\epsilon$) $\wedge$ \textsc{date}($\epsilon$)\\v
-            [v [agent]]
-            [V [$\surd$date]]
-          ]
-          [$\lambda P\ \lambda x\ \lambda y\ \lambda \epsilon$ $P(x \oplus\ y)(\epsilon)$ \\$\surd$with]
-          ]
-          [DP [Arjun, roof]]
-         ]
-       ]
+  [$\lambda \epsilon\textsc{patient_x}(\text{Aisha} \oplus \text{Arjun})(\epsilon) \wedge \textsc{date}(\epsilon)$\\VP
+    [DP [Arjun, roof]]
+    [$\lambda y\ \lambda \epsilon \textsc{patient_x}(\text{Aisha} \oplus y)(\epsilon) \wedge \textsc{date}(\epsilon)$\\VP
+      [$\lambda x\ \lambda y\ \lambda \epsilon \textsc{patient_x}(x \oplus y)(\epsilon) \wedge \textsc{date}(\epsilon)$\\V\\(date) 
+        [$\lambda P\ \lambda x\ \lambda y\ \lambda \epsilon\ P(x \oplus y)(\epsilon)$ \\$\surd$with ]
+        [$\lambda x\ \textsc{patient_x}(x)(\epsilon) \wedge \textsc{date}(\epsilon)$\\$\surd$date ]
+      ]
+      [DP [Aisha, roof]]
+     ]
+  ]
   \end{forest}\\
-  \normalsize \sn \textit{=Aisha dated Arjun.}
-  \medskip
+  \normalsize \sn \textit{=Arjun dated Aisha.}
+  \bigskip
 
   \normalsize \ex $aP$ frame:\\[8pt]
   % \small
   \begin{forest}
-  [$\lambda \epsilon$ \textsc{agent}_{X}(Aisha $\oplus$ Arjun)($\epsilon$) $\wedge$ \textsc{date}($\epsilon$) \\vP
-    [DP [Aisha and Arjun, roof]]
-    [$\lambda x\ \lambda \epsilon$ \textsc{agent}_{X}($x$)($\epsilon$) $\wedge$ \textsc{date}($\epsilon$) \\vP
-      [v [agent]]
-      [VP [V [$\surd$date]]]
+  [$\lambda \epsilon$ \textsc{agent}_{X}(Aisha $\oplus$ Arjun)($\epsilon$) $\wedge$ \textsc{date}($\epsilon$) \\TP
+    [DP [Aisha and Arjun, roof, name=binder]]
+    [TP
+    [T]
+    [$\lambda \epsilon$ \textsc{patient}_{x}(Aisha and Arjun)($\epsilon$) $\wedge$ \textsc{date}($\epsilon$) \\VP
+    [V [$\surd$date]
+      [t, name=trace]
+      ]
      ]
-  ]
+  ]]
+  \draw[->,>=stealth', thin, gray] (trace) to[out=south west,in=south,looseness=1] node[pos=0.75,xshift=-10mm]{} (binder);
   \end{forest}\\
     \normalsize \sn \textit{= Aisha and Arjun dated}
 \pagebreak
@@ -628,10 +749,10 @@ We speculate that symmetric predicates that don't involve the word \textit{with}
   % \small
   % \hspace*{-40pt}
 \begin{forest}
-    [$\lambda \epsilon$ \textsc{agent}_{X}(she)($\epsilon$) $\wedge$ \textsc{theme}_{X}(you $\oplus$ me)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$) \\vP
+    [$\lambda \epsilon$ \textsc{agent}_{X}(she)($\epsilon$) $\wedge$ \textsc{theme}_{X}(you $\oplus$ me)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$) \\VoiceP
       [DP [she, roof]]
-      [$\lambda x\ \lambda \epsilon$ \textsc{agent}_{X}($x$)($\epsilon$) $\wedge$ \textsc{theme}_{X}(you $\oplus$ me)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$) \\vP
-        [v [agent]]
+      [$\lambda x\ \lambda \epsilon$ \textsc{agent}_{X}($x$)($\epsilon$) $\wedge$ \textsc{theme}_{X}(you $\oplus$ me)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$) \\VoiceP
+        [Voice [agent]]
         [$\lambda \epsilon$ \textsc{theme}_{X}(you $\oplus$ me)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$)\\VP
           [$\lambda y\ \lambda \epsilon$ \textsc{theme}_{X}(you $\oplus\ y)$($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$)\\VP
           [$\lambda x\ \lambda y\ \lambda \epsilon$ \textsc{theme}_{X}$(x \oplus\ y)$($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$)\\V\\ (introduce)
@@ -644,17 +765,17 @@ We speculate that symmetric predicates that don't involve the word \textit{with}
        ]
      ]
    ]
-\end{forest}\\
+\end{forest}\\[15pt]
 \sn \textit{= She introduced you to me.}
-\medskip
+\pagebreak
 
     \ex $aP$ frame:\\[8pt]
     % \small
     \begin{forest}
-    [$\lambda \epsilon$ \textsc{agent}_{X}(she)($\epsilon$) $\wedge$ \textsc{theme}_{X}(us)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$) \\vP
+    [$\lambda \epsilon$ \textsc{agent}_{X}(she)($\epsilon$) $\wedge$ \textsc{theme}_{X}(us)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$) \\VoiceP
       [DP [she, roof]]
-      [$\lambda x\ \lambda \epsilon$ \textsc{agent}_{X}($x$)($\epsilon$) $\wedge$ \textsc{theme}_{X}(us)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$) \\vP
-        [v [agent]]
+      [$\lambda x\ \lambda \epsilon$ \textsc{agent}_{X}($x$)($\epsilon$) $\wedge$ \textsc{theme}_{X}(us)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$) \\VoiceP
+        [Voice [agent]]
         [$\lambda \epsilon$ \textsc{theme}_{X}(us)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$) \\VP
           [$\lambda x\ \lambda \epsilon$ \textsc{theme}_{X}($x$)($\epsilon$) $\wedge$ \textsc{introduce}($\epsilon$) \\V [$\surd$introduce]]
           [DP [us, roof]]
@@ -666,29 +787,232 @@ We speculate that symmetric predicates that don't involve the word \textit{with}
 \end{exe}
 Note that we take \textit{to} to be semantically vacuous.
 
-Our treatment of \textit{with}-less symmetric predicates is similar to a popular account of the causative/inchoative alternation. On that account, the alternation in (\ref{ex:causincho1}) is syntactically parallel to the contrast in~(\ref{ex:causincho2}).
-\begin{exe}
-\raggedright
-  \ex \label{ex:causincho1}
-  \begin{xlist}
-    \ex Aisha bounced the ball.
-    \ex The ball bounced.
-  \end{xlist}
-  \ex \label{ex:causincho2}
-  \begin{xlist}
-    \ex Aisha made the ball bounce.
-    \ex The ball bounced.
-  \end{xlist}
-\end{exe}
-The terms associated with  \denotes{make} in (\ref{ex:causincho2}a) are syntactically present in (\ref{ex:causincho1}a), but are exponed by the verb \textit{bounce}. Similarly, we suggest that the denotation for \textit{$\surd$with} is present in examples like (\ref{ex:symmfintrans}) and (\ref{ex:symmfinditrans}), but exponed by the verbs \textit{date} and \textit{introduce}. The verbs that participate in the $aP$ $\Leftrightarrow$ $bPc$ alternation are just those predicates that English has decided can expone~\textit{$\surd$with}. When they expone \textit{$\surd$with}, they have overcome Role Exhaustion, and are therefore symmetric. This is Winter's Generalization.
-
-
 
 
 %References
 \printbibliography[title={\sffamily References}]
 
 \end{document}
+
+We'll treat comitatives as sorts of depictives. They describe states which temporally overlap the event described by the verb. First, let's unveil a theory of depictives. We'll assume that adjectives describe states which their arguments hold. So:
+\begin{exe}
+\raggedright
+  \ex \label{ex:nakedbare}
+  \small
+  \begin{forest}
+  [$\lambda \epsilon$ \textsc{holder}(Smith)($\epsilon$) $\wedge$ \textsc{naked}($\epsilon$)
+    [DP [Smith, roof] ]
+    [$\lambda x\ \lambda \epsilon$ \textsc{holder}($x$)($\epsilon$) $\wedge$ \textsc{naked}($\epsilon$)\\ AP [naked, roof] ]
+  ]
+  \end{forest}
+\end{exe}
+In depictives, we'll assume there is a hidden morpheme that connects these state descriptions to the VP and imposes the temporal overlap condition.
+\begin{exe}
+\raggedright
+  \ex \label{ex:depictive} \denotes{dep} = $\lambda P\ \lambda Q\ \lambda x\ \lambda \epsilon\ \exists \epsilon'\ P(x)(\epsilon')\ \wedge\ Q(x)(\epsilon)\ \wedge$ \textsc{overlap}($\epsilon$)($\epsilon'$)
+  \ex
+  \small
+  \small
+  \begin{forest}
+      [vP
+        [DP [Smith, roof] ]
+        [$\lambda x\ \lambda \epsilon\ \exists \epsilon'$ \textsc{holder}($x$)($\epsilon'$) $\wedge$ \textsc{naked}($\epsilon'$) $\wedge$ \textsc{overlap}($\epsilon$)($\epsilon'$) $\wedge$\\ \textsc{agent}($x$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) \\vP
+        [$\lambda x\ \lambda \epsilon$ \textsc{agent}($x$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) \\vP
+          [v [agent]]
+          [VP [run]]
+         ]
+         [$\lambda Q\ \lambda x\ \lambda \epsilon\ \exists \epsilon'$ \textsc{holder}($x$)($\epsilon'$) $\wedge$ \textsc{naked}($\epsilon'$) $\wedge$\\ $Q$($x$)($\epsilon$) $\wedge$ \textsc{overlap}($\epsilon$)($\epsilon'$) \\DepP
+          [Dep ]
+          [$\lambda x\ \lambda \epsilon$ \textsc{holder}($x$)($\epsilon$) $\wedge$ \textsc{naked}($\epsilon$) \\AP [naked, roof]]
+         ]
+       ]
+     ]
+  \end{forest}
+\end{exe}
+
+So, to understand comitatives, we need to give an account of the kind of state they denote. Maybe we can converge on that by considering sentences like:
+\begin{exe}
+\raggedright
+  \ex \label{ex:combas}
+  \begin{xlist}
+    \ex She is with you.
+    \ex I saw you with her.
+  \end{xlist}
+\end{exe}
+Intuitively, we want these expressions to denote states which are true if she and you are a group. If these constructions are related to expressions like (\ref{ex:russian}), grammatical in some languages, then we want that group to be unbreakable.
+\begin{exe}
+\raggedright
+  \ex \label{ex:russian}
+  She with you arrived.
+\end{exe}
+What we want to do in (\ref{ex:russian}) is make it impossible for there to be two unrelated arrivals: one by you and one by her. We have the additional need to make "she with you" refer to a plurality---that's not a requirement for our semantics in English because examples like (\ref{ex:russian}) don't arise. I'll not strive to get that result, but I will strive to capture the anti-distributive nature of these expressions. What we'll want is for the \emph{with} phrases in (\ref{ex:combas}) to denote eventualities in which the two arguments are parts of. If we want to put the Russian facts here too (we might not) we can add that if they are part of an event that \emph{with} describes, they are parts of all subevents. Here's a stab at it.
+\begin{exe}
+\raggedright
+  \ex \label{ex:denwith}
+  \denotes{with} =  \parbox[t]{3in}{$\lambda x\ \lambda y\ \lambda \epsilon$  $P(\epsilon) \wedge$ $H$($y$)($\epsilon$) $\wedge$ $H$($x$)($\epsilon$)\\ ( $\wedge$ $\forall \epsilon',\epsilon''$ [$H$($x$)($\epsilon',\epsilon'') \wedge$ $H$($y$)($\epsilon',\epsilon''$)] $\rightarrow$ $\epsilon' = \epsilon''$)}
+\end{exe}
+The $P$ and $H$ are free variables. Their values will be supplied by the context. What (\ref{ex:denwith}) says is that the two individuals that \emph{with} combines are related in the same way to an event that is $H$. In parentheses is the additional, Russian, condition that $H$ cannot relate these two individuals to different eventualities. I'll leave whether this is part of the denotation or not open. The result of combining two individuals with \emph{with}, then, is a predicate that describes eventualities in which those individuals form a group by some contextually salient~$P$. A demonstration:
+\begin{exe}
+\raggedright
+\ex \label{ex:withsimptree}
+% \small
+\begin{forest}
+[$\lambda \epsilon$  $P(\epsilon) \wedge$ $H$(Smith)($\epsilon$) $\wedge$ $H$(Jones)($\epsilon$)\\PP
+  [DP [Smith, roof] ]
+  [$\lambda y\ \lambda \epsilon$  $P(\epsilon) \wedge$ $H$($y$)($\epsilon$) $\wedge$ $H$(Jones)($\epsilon$)\\PP
+    [$\lambda x\ \lambda y\ \lambda \epsilon$  $P(\epsilon) \wedge$ $H$($y$)($\epsilon$) $\wedge$ $H$($x$)($\epsilon$)\\P [with] ]
+    [DP [Jones, roof] ]
+   ]
+]
+\end{forest}
+\end{exe}
+
+Okay, let's see how this will work when the \emph{with}-phrase is a depictive.
+\begin{exe}
+\raggedright
+  \ex
+  % \small
+  \begin{forest}
+  [$\lambda \epsilon\ \exists \epsilon'$ $P(\epsilon')$ $\wedge$ $H$(Smith)($\epsilon'$) $\wedge$ $H$(Jones)($\epsilon'$)\\ $\wedge$ \textsc{agent}(Smith)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) $\wedge$ \textsc{overlap}($\epsilon$)($\epsilon'$)\\vP
+  [DP [Smith, roof] ]
+      [$\lambda x\ \lambda \epsilon\ \exists \epsilon'$ $P(\epsilon')$ $\wedge$ $H$($x$)($\epsilon'$) $\wedge$ $H$(Jones)($\epsilon'$)\\ $\wedge$ \textsc{agent}($x$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) $\wedge$ \textsc{overlap}($\epsilon$)($\epsilon'$)\\vP
+    [$\lambda x\ \lambda \epsilon$ \textsc{agent}($x$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) \\vP
+        [v [agent]]
+        [VP [run] ]
+       ]
+       [$\lambda Q\ \lambda x\ \lambda \epsilon\ \exists \epsilon'$ $P(\epsilon')$ $\wedge$ $H$($x$)($\epsilon'$) $\wedge$ $H$(Jones)($\epsilon'$)\\ $\wedge\ Q(x)(\epsilon)\ \wedge$ \textsc{overlap}($\epsilon$)($\epsilon'$)\\DepP
+       [$\lambda R\ \lambda Q\ \lambda x\ \lambda \epsilon\ \exists \epsilon'\ R(x)(\epsilon')$\\ $\wedge\ Q(x)(\epsilon)\ \wedge$ \textsc{overlap}($\epsilon$)($\epsilon'$)\\Dep]
+      [$\lambda y\ \lambda \epsilon$  $P(\epsilon) \wedge$ $H$($y$)($\epsilon$) $\wedge$ $H$(Jones)($\epsilon$)\\PP [with Jones, roof] ]
+       ]
+     ]
+  ]
+  \end{forest}
+\end{exe}
+If this context provides the denotation of the VP, \emph{run}, as a salient antecedent for $P$, then we have what we want (I think).
+\pagebreak
+
+Let's add \emph{together} and see what happens. We've talked about two possible syntaxes: one with \emph{together} attached to vP. Let's look at that one first.
+\begin{exe}
+  \ex \label{ex:togwith}
+  % \small
+  \begin{forest}
+        [$\lambda \epsilon\ \exists \epsilon'$ $P(\epsilon')$ $\wedge$ $H$(Smith)($\epsilon'$) $\wedge$ $H$(Jones)($\epsilon'$) $\wedge$ \textsc{agent}(Smith)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) $\wedge$\\ $\forall \epsilon'$ {[}\textsc{agent}(Smith)($\epsilon'$) $\wedge$ \textsc{run}($\epsilon'$){]} $\rightarrow$ $\epsilon' < \epsilon$ $\wedge$ \textsc{overlap}($\epsilon$)($\epsilon'$)\\vP
+        [DP [Smith, roof]]
+          [$\lambda x\ \lambda \epsilon\ \exists \epsilon'$ $P(\epsilon')$ $\wedge$ $H$($x$)($\epsilon'$) $\wedge$ $H$(Jones)($\epsilon'$) $\wedge$ \textsc{agent}($x$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) $\wedge$\\ $\forall \epsilon'$ {[}\textsc{agent}($x$)($\epsilon'$) $\wedge$ \textsc{run}($\epsilon'$){]} $\rightarrow$ $\epsilon' < \epsilon$ $\wedge$ \textsc{overlap}($\epsilon$)($\epsilon'$)\\vP
+          [$\lambda x\ \lambda \epsilon$ \textsc{agent}($x$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) $\wedge$\\ $\forall \epsilon'$ {[}\textsc{agent}($x$)($\epsilon'$) $\wedge$ \textsc{run}($\epsilon'$){]} $\rightarrow$ $\epsilon' < \epsilon$ \\vP
+              [$\lambda x\ \lambda \epsilon$ \textsc{agent}($x$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$)\\vP 
+                [$\lambda x\ \lambda \epsilon$ \textsc{agent}($x$)($\epsilon$) \\v [agent]]
+                [$\lambda \epsilon$ \textsc{run}($\epsilon$)\\VP [run, roof] ]
+              ]
+              [together]
+             ]
+             [$\lambda Q\ \lambda x\ \lambda \epsilon\ \exists \epsilon'$ $P(\epsilon')$ $\wedge$ $H$($x$)($\epsilon'$) $\wedge$ $H$(Jones)($\epsilon'$)\\ $\wedge\ Q(x)(\epsilon)\ \wedge$ \textsc{overlap}($\epsilon$)($\epsilon'$)\\DepP
+             [Dep]
+            [PP [with Jones, roof] ]]
+           ]]
+  \end{forest}
+\end{exe}
+The denotation of \emph{together} is going to have to introduce a presupposition that the event it describes be ``plural.'' That is, it's going to require that the VP \emph{run} have two agents. That can be satisfied here only if $H$ is given the value that \denotes{vP} has. This will force Smith and Jones to be the agents of the running eventuality. This is shown on the following page. (Note that $P$ has to be \emph{run}).
+\pagebreak
+\begin{exe}
+\raggedright
+  \ex \label{ex:togwith2}
+  % \small
+  \begin{forest}
+    [$\lambda \epsilon\ \exists \epsilon'$ \textsc{run}$(\epsilon')$ $\wedge$ \textsc{agent}(Smith)($\epsilon'$) $\wedge$ \textsc{agent}(Jones)($\epsilon'$) $\wedge$ \textsc{agent}(Smith)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) $\wedge$\\ $\forall \epsilon'$ {[}\textsc{agent}(Smith)($\epsilon'$) $\wedge$ \textsc{run}($\epsilon'$){]} $\rightarrow$ $\epsilon' < \epsilon$ $\wedge$ \textsc{overlap}($\epsilon$)($\epsilon'$)\\vP
+    [DP [Smith, roof]]
+      [$\lambda x\ \lambda \epsilon\ \exists \epsilon'$ $P(\epsilon')$ $\wedge$ $H$($x$)($\epsilon'$) $\wedge$ $H$(Jones)($\epsilon'$) $\wedge$ \textsc{agent}($x$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) $\wedge$\\ $\forall \epsilon'$ {[}\textsc{agent}($x$)($\epsilon'$) $\wedge$ \textsc{run}($\epsilon'$){]} $\rightarrow$ $\epsilon' < \epsilon$ $\wedge$ \textsc{overlap}($\epsilon$)($\epsilon'$)\\vP
+      [$\lambda x\ \lambda \epsilon$ \textsc{agent}($x$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$) $\wedge$\\ $\forall \epsilon'$ {[}\textsc{agent}($x$)($\epsilon'$) $\wedge$ \textsc{run}($\epsilon'$){]} $\rightarrow$ $\epsilon' < \epsilon$ \\vP
+          [$\lambda x\ \lambda \epsilon$ \textsc{agent}($x$)($\epsilon$) $\wedge$ \textsc{run}($\epsilon$)\\vP 
+            [$\lambda x\ \lambda \epsilon$ \textsc{agent}($x$)($\epsilon$) \\v [agent]]
+            [$\lambda \epsilon$ \textsc{run}($\epsilon$)\\VP [run, roof] ]
+          ]
+          [together]
+         ]
+         [$\lambda Q\ \lambda x\ \lambda \epsilon\ \exists \epsilon'$ $P(\epsilon')$ $\wedge$ $H$($x$)($\epsilon'$) $\wedge$ $H$(Jones)($\epsilon'$)\\ $\wedge\ Q(x)(\epsilon)\ \wedge$ \textsc{overlap}($\epsilon$)($\epsilon'$)\\DepP
+         [Dep]
+        [PP [with Jones, roof] ]]
+       ]]
+\end{forest}
+\end{exe}
+This is very close to what we want. Does it force Jones to be ``together''? Let's now look at what happens if \emph{together} forms a constituent with the \emph{with}-phrase.
+\pagebreak
+\begin{exe}
+\raggedright
+
+  \ex \label{ex:togw}
+  % \small
+  \begin{forest}
+  [$\lambda \epsilon\ \exists \epsilon''$ $P(\epsilon'') \wedge$ $H$(Smith)($\epsilon''$) $\wedge$ $H$(Jones)($\epsilon''$) $\wedge\ \forall \epsilon'$ {[}$P(\epsilon') \wedge$ $H$(Smith)($\epsilon'$) $\wedge$ $H$(Jones)($\epsilon'$){]} $\rightarrow$ $\epsilon' < \epsilon''$\\ $\wedge$ \textsc{run}($\epsilon$) $\wedge$ \textsc{agent}(Smith)($\epsilon$) $\wedge$ \textsc{overlap}($\epsilon$)($\epsilon''$)\\vP
+  [DP [Smith, roof]]
+  [$\lambda x\ \lambda \epsilon\ \exists \epsilon''$ $P(\epsilon'') \wedge$ $H$($x$)($\epsilon''$) $\wedge$ $H$(Jones)($\epsilon''$) $\wedge\ \forall \epsilon'$ {[}$P(\epsilon') \wedge$ $H$($x$)($\epsilon'$) $\wedge$ $H$(Jones)($\epsilon'$){]} $\rightarrow$ $\epsilon' < \epsilon''$\\ $\wedge$ \textsc{run}($\epsilon$) $\wedge$ \textsc{agent}($x$)($\epsilon$) $\wedge$ \textsc{overlap}($\epsilon$)($\epsilon''$)\\vP
+    [$\lambda x\ \lambda \epsilon$ \textsc{run}($\epsilon$) $\wedge$ \textsc{agent}($x$)($\epsilon$) \\vP [run, roof]]
+      [$\lambda Q\ \lambda x\ \lambda \epsilon\ \exists \epsilon''$ $P(\epsilon'') \wedge$ $H$($x$)($\epsilon''$) $\wedge$ $H$(Jones)($\epsilon''$) $\wedge\ \forall \epsilon'$ {[}$P(\epsilon') \wedge$ $H$($x$)($\epsilon'$) $\wedge$ $H$(Jones)($\epsilon'$){]} $\rightarrow$ $\epsilon' < \epsilon''$\\ $\wedge\ Q(x)(\epsilon)\ \wedge$ \textsc{overlap}($\epsilon$)($\epsilon''$)\\DepP
+      [$\lambda R\ \lambda Q\ \lambda x\ \lambda \epsilon\ \exists \epsilon''\ R(x)(\epsilon'')$\\ $\wedge\ Q(x)(\epsilon)\ \wedge$ \textsc{overlap}($\epsilon$)($\epsilon''$)\\Dep]
+      [$\lambda x\ \lambda \epsilon$ $P(\epsilon) \wedge$ $H$($x$)($\epsilon$) $\wedge$ $H$(Jones)($\epsilon$) $\wedge$\\ $\forall \epsilon'$ {[}$P(\epsilon') \wedge$ $H$($x$)($\epsilon'$) $\wedge$ $H$(Jones)($\epsilon'$){]} $\rightarrow$ $\epsilon' < \epsilon$\\PP
+        [together ]
+        [$\lambda y\ \lambda \epsilon$  $P(\epsilon) \wedge$ $H$($y$)($\epsilon$) $\wedge$ $H$(Jones)($\epsilon$)\\PP
+          [P [with]]
+          [DP [Jones, roof] ]
+         ]
+       ]]
+    ]]
+  \end{forest}
+\end{exe}
+And, as before, let $H$ and $P$ be the denotations that are assigned to the vP and VP containing agent+run. We get:
+\pagebreak
+\begin{exe}
+  \raggedright
+  
+    \ex \label{ex:togw2}
+    % \small
+    \begin{forest}
+      [$\lambda \epsilon\ \exists \epsilon''$ \textsc{run}$(\epsilon'') \wedge$ \textsc{agent}(Smith)($\epsilon''$) $\wedge$ \textsc{agent}(Jones)($\epsilon''$) $\wedge$\\ $\forall \epsilon'$ {[}\textsc{run}$(\epsilon') \wedge$ \textsc{agent}(Smith)($\epsilon'$) $\wedge$ \textsc{agent}(Jones)($\epsilon'$){]} $\rightarrow$ $\epsilon' < \epsilon''$\\ $\wedge$ \textsc{run}($\epsilon$) $\wedge$ \textsc{agent}(Smith)($\epsilon$) $\wedge$ \textsc{overlap}($\epsilon$)($\epsilon''$)\\vP
+      [DP [Smith, roof]]
+      [$\lambda x\ \lambda \epsilon\ \exists \epsilon''$ $P(\epsilon'') \wedge$ $H$($x$)($\epsilon''$) $\wedge$ $H$(Jones)($\epsilon''$) $\wedge$\\ $\forall \epsilon'$ {[}$P(\epsilon') \wedge$ $H$($x$)($\epsilon'$) $\wedge$ $H$(Jones)($\epsilon'$){]} $\rightarrow$ $\epsilon' < \epsilon''$\\ $\wedge$ \textsc{run}($\epsilon$) $\wedge$ \textsc{agent}($x$)($\epsilon$) $\wedge$ \textsc{overlap}($\epsilon$)($\epsilon''$)\\vP
+        [$\lambda x\ \lambda \epsilon$ \textsc{run}($\epsilon$) $\wedge$ \textsc{agent}($x$)($\epsilon$) \\vP [run, roof]]
+          [$\lambda Q\ \lambda x\ \lambda \epsilon\ \exists \epsilon''$ $P(\epsilon'') \wedge$ $H$($x$)($\epsilon''$) $\wedge$ $H$(Jones)($\epsilon''$) $\wedge$\\ $\forall \epsilon'$ {[}$P(\epsilon') \wedge$ $H$($x$)($\epsilon'$) $\wedge$ $H$(Jones)($\epsilon'$){]} $\rightarrow$ $\epsilon' < \epsilon''$\\ $\wedge\ Q(x)(\epsilon)\ \wedge$ \textsc{overlap}($\epsilon$)($\epsilon''$)\\DepP
+          [$\lambda R\ \lambda Q\ \lambda x\ \lambda \epsilon\ \exists \epsilon''\ R(x)(\epsilon'')$\\ $\wedge\ Q(x)(\epsilon)\ \wedge$ \textsc{overlap}($\epsilon$)($\epsilon''$)\\Dep]
+          [$\lambda x\ \lambda \epsilon$ $P(\epsilon) \wedge$ $H$($x$)($\epsilon$) $\wedge$ $H$(Jones)($\epsilon$) $\wedge$\\ $\forall \epsilon'$ {[}$P(\epsilon') \wedge$ $H$($x$)($\epsilon'$) $\wedge$ $H$(Jones)($\epsilon'$){]} $\rightarrow$ $\epsilon' < \epsilon$\\PP
+            [together ]
+            [$\lambda y\ \lambda \epsilon$  $P(\epsilon) \wedge$ $H$($y$)($\epsilon$) $\wedge$ $H$(Jones)($\epsilon$)\\PP
+              [P [with]]
+              [DP [Jones, roof] ]
+             ]
+           ]]
+        ]]
+      \end{forest}
+  \end{exe}
+\pagebreak
+\begin{exe}
+\raggedright
+  \ex \label{ex:dep2}
+  \begin{forest}
+  [TP
+    [DP^2 [she, roof]]
+    [TP
+      [T [past]]
+      [vP
+        [\emph{t_2} ]
+        [vP
+          [v [agent]]
+          [VP
+            [DP [Smith, roof]]
+            [$\lambda x\ \lambda \epsilon\ \exists \epsilon'$ \textsc{holder}($x$)($\epsilon'$) $\wedge$ \textsc{drunk}($\epsilon'$) $\wedge$ \textsc{patient}($x$)($\epsilon$) $\wedge$ \textsc{kiss}($\epsilon$) $\wedge$ \textsc{overlap}($\epsilon$)($\epsilon'$) \\VP
+              [$\lambda x\ \lambda \epsilon$ \textsc{patient}($x$)($\epsilon$) $\wedge$ \textsc{kiss}($\epsilon$) \\VP [$\surd$kiss] ]
+              [$\lambda Q\ \lambda x\ \lambda \epsilon\ \exists \epsilon'$ \textsc{holder}($x$)($\epsilon'$) $\wedge$ \textsc{drunk}($\epsilon'$) $\wedge$ $Q(x)(\epsilon)$ $\wedge$ \textsc{overlap}($\epsilon$)($\epsilon'$) \\DepP
+                [Dep ]
+                [$\lambda x\ \lambda \epsilon$ \textsc{holder}($x$)($\epsilon$) $\wedge$ \textsc{drunk}($\epsilon$) \\AP [drunk, roof] ]
+              ]
+             ]
+           ]
+         ]
+       ]
+     ]
+  ]
+  \end{forest}
+\end{exe}
+Maybe this is what we want too?
 
 temporal overlap:
 

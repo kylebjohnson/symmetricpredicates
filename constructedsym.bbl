@@ -17,6 +17,33 @@
 \endgroup
 
 \datalist[entry]{nyt/global//global/global/global}
+  \entry{Ardid-Gumiel:2001}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=AGA}{%
+         family={Ardid-Gumiel},
+         familyi={A\bibinithyphendelim G\bibinitperiod},
+         given={Ana},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {ZAS}%
+    }
+    \strng{namehash}{AGA1}
+    \strng{fullhash}{AGA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2001}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{pages}{61\bibrangedash 86}
+    \field{title}{The Syntax of Depictives: Subjects, Modes of Judgement and I-LS-L Properties}
+    \field{volume}{26}
+    \field{journaltitle}{{ZAS} Papers in Linguistics}
+    \field{year}{2001}
+  \endentry
+
   \entry{Carlson:1984aa}{article}{}{}
     \name{author}{1}{}{%
       {{hash=CG}{%
@@ -138,6 +165,31 @@
     \field{volume}{67}
     \field{journaltitle}{Language}
     \field{year}{1991}
+  \endentry
+
+  \entry{Geuder:2002}{thesis}{}{}
+    \name{author}{1}{}{%
+      {{hash=GW}{%
+         family={Geuder},
+         familyi={G\bibinitperiod},
+         given={Wilhelm},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GW1}
+    \strng{fullhash}{GW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2002}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{Oriented Adverbs: Issues in the Lexical Semantics of Event Adverbs}
+    \list{institution}{1}{%
+      {Universit{\"a}t T{\"u}bingen}%
+    }
+    \field{type}{phdthesis}
+    \field{year}{2002}
   \endentry
 
   \entry{Kofka:1955}{book}{}{}
